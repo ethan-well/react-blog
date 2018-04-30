@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, browserHistory } from "react-rout
 
 import Home from '../views/Home';
 import Detail from '../views/Detail';
-import Fram from '../layouts/Fram';
+import Index from '../layouts/Index';
 
 class RouteComponent extends React.Component {
   constructor(props) {
@@ -12,10 +12,10 @@ class RouteComponent extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Fram>
+        <Index>
           <Route exact path="/" component={Home} />
           <Route path="/detail/:id" component={Detail} />
-        </Fram>
+        </Index>
       </Router>
     );
   }

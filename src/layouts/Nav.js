@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'antd';
+import { Menu, List } from 'antd';
 
 class Nav extends Component {
   constructor(props) {
@@ -8,20 +8,15 @@ class Nav extends Component {
   }
   render() {
     return (
-      <nav>
-        <Menu
-          theme="light"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          style={{ lineHeight: '64px' }}
-        >
-          <Menu.Item key="1">
+      <nav className='header-nav header-nav-right'>
+        <ul className='header-nav-list'>
+          <li className='header-nav-item'>
             <Link to="/" >Home</Link>
-          </Menu.Item>
-          <Menu.Item key="2">
+          </li>
+          <li className='header-nav-item'>
             <Link to="/detail/1" >Detail</Link>
-          </Menu.Item>
-        </Menu>
+          </li>
+        </ul>
       </nav>
     );
   }

@@ -1,0 +1,22 @@
+.header {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0px;
+  a {
+    color: #595959;
+    text-decoration: none;
+  }
+  a:active {
+    color: #262626;
+  }
+  .header-nav.header-nav-right {
+    float: right;
+    .header-nav-list{
+      list-style: none;
+      padding: 0px;
+      .header-nav-item{
+        display: inline-block;
+        padding-left: 40px;
+      }
+    }
+  }
+}

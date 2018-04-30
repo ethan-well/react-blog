@@ -4,23 +4,24 @@ const { Header, Footer, Sider, Content } = Layout;
 import Nav from './Nav';
 import UserAvatar from './UserAvatar';
 import { Row, Col } from 'antd';
-import Style from './base.css';
+import Style from './base.scss';
 
-class Fram extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
   }
   render(){
     return(
       <Layout>
-        <Header style={{ backgroundColor: '#fff' }}>
+        <Header className="header" style={{ backgroundColor: '#fff' }}>
           <Row>
             <Col span={4}>
-              <UserAvatar/>
             </Col>
-            <Col span={20}>
+            <Col span={16}>
+              <UserAvatar/>
               <Nav/>
             </Col>
+            <Col span={4}></Col>
           </Row>
         </Header>
         <Content style={{ backgroundColor: '#fff' }}>
@@ -32,4 +33,4 @@ class Fram extends React.Component {
   }
 }
 
-export default Fram;
+export default Index;

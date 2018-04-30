@@ -8,9 +8,7 @@ class UserAvatar extends React.Component {
 
   render() {
     return(
-      <div>
-        <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ backgroundColor: '#87d068' }} icon="user" />
-      </div>
+      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style={{ backgroundColor: '#87d068' }} icon="user" />
     )
   }
 }
