@@ -11,10 +11,16 @@ class Nav extends Component {
       <nav className='header-nav header-nav-right'>
         <ul className='header-nav-list'>
           <li className='header-nav-item'>
-            <Link to="/" >Home</Link>
+            <Link to="/" >主页</Link>
           </li>
           <li className='header-nav-item'>
-            <Link to="/detail/1" >Detail</Link>
+            <Link to="/detail/1" >关于我</Link>
+          </li>
+          <li className='header-nav-item'>
+            <Link to="/detail/2" >博文</Link>
+          </li>
+          <li className='header-nav-item'>
+            <Link to="/detail/3" >自建站</Link>
           </li>
         </ul>
       </nav>

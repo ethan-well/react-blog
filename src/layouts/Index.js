@@ -17,17 +17,17 @@ class Index extends React.Component {
           <Row>
             <Col span={4}>
             </Col>
-            <Col span={16}>
+            <Col span={18}>
               <UserAvatar/>
               <Nav/>
             </Col>
-            <Col span={4}></Col>
+            <Col span={2}></Col>
           </Row>
         </Header>
-        <Content style={{ backgroundColor: '#fff' }}>
+        <Content className="content">
           {this.props.children}
         </Content>
-        <Footer style={{ backgroundColor: '#fff' }}>Footer</Footer>
+        <Footer className="footer">Footer</Footer>
       </Layout>
     )
   }
