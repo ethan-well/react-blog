@@ -6,9 +6,7 @@ class Home extends Component {
     return (
       <div>
         <h1>Home33</h1>
-        <DatePicker />
       </div>
-
     );
   }
 }

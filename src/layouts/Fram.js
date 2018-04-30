@@ -4,6 +4,7 @@ const { Header, Footer, Sider, Content } = Layout;
 import Nav from './Nav';
 import UserAvatar from './UserAvatar';
 import { Row, Col } from 'antd';
+import Style from './base.css';
 
 class Fram extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class Fram extends React.Component {
   render(){
     return(
       <Layout>
-        <Header style={{ backgroundColor: '#ffffff' }}>
+        <Header style={{ backgroundColor: '#fff' }}>
           <Row>
             <Col span={4}>
               <UserAvatar/>
@@ -22,10 +23,10 @@ class Fram extends React.Component {
             </Col>
           </Row>
         </Header>
-        <Content>
+        <Content style={{ backgroundColor: '#fff' }}>
           {this.props.children}
         </Content>
-        <Footer>Footer</Footer>
+        <Footer style={{ backgroundColor: '#fff' }}>Footer</Footer>
       </Layout>
     )
   }
