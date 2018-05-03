@@ -38,6 +38,19 @@ html, body {
         }
       }
     }
+
+    .write-post-area {
+      height: 100%;
+      .title {
+
+      }
+      .content {
+        .post-editor {
+          border-right: 1px solid red;
+          height: 100%;
+        }
+      }
+    }
   }
 
   .footer {

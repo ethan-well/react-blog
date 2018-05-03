@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, browserHistory } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Link, browserHistory, Switch } from "react-router-dom";
 import Home from '../views/Home';
 import Detail from '../views/Detail';
-import Index from '../layouts/Index';
+import CreateBlog from '../views/Editor';
 
 class RouteComponent extends React.Component {
   constructor(props) {
@@ -11,11 +10,12 @@ class RouteComponent extends React.Component {
   }
   render() {
     return (
-      <Router history={browserHistory}>
-        <Index>
-          <Route exact path="/" component={Home} />
-          <Route path="/detail/:id" component={Detail} />
-        </Index>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/detail/:id" component={Detail}></Route>
+          <Route path="/create_blog" component={CreateBlog}></Route>
+        </Switch>
       </Router>
     );
   }

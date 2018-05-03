@@ -17,7 +17,7 @@ class Nav extends Component {
             <Link to="/detail/1" >关于我</Link>
           </li>
           <li className='header-nav-item'>
-            <Link to="/detail/2" >博文</Link>
+            <Link to="/create_blog" >写文章</Link>
           </li>
           <li className='header-nav-item'>
             <Link to="/detail/3" >自建站</Link>
