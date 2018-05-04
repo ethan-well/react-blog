@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, browserHistory, Switch } from "react-router-dom";
 import Home from '../views/Home';
 import Detail from '../views/Detail';
-import CreateBlog from '../views/Editor';
+import PostEditor from '../views/PostEditor';
 
 class RouteComponent extends React.Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class RouteComponent extends React.Component {
   render() {
     return (
       <Router>
-        <Switch>
+        <div>
           <Route exact path="/" component={Home}></Route>
           <Route path="/detail/:id" component={Detail}></Route>
-          <Route path="/create_blog" component={CreateBlog}></Route>
-        </Switch>
+          <Route path="/create_blog" component={PostEditor}></Route>
+        </div>
       </Router>
     );
   }

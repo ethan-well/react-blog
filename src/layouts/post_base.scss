@@ -1,5 +1,6 @@
 html, body {
   background-color: #fafafa;
+
   .header {
     border-bottom: 1px solid #e8e8e8;
     padding: 0px;
@@ -19,6 +20,41 @@ html, body {
           display: inline-block;
           padding-left: 40px;
         }
+      }
+    }
+  }
+
+  .post .content {
+    padding-top: 0px;
+    background-color: #fafafa;
+  }
+
+  .write-post-area {
+    .title {
+      width: 100%;
+      input {
+        padding-top: 30px;
+        width: 100%;
+        font-size: 18px;
+        height: 60px;
+        padding-left: 20px;
+        border: none;
+        border-bottom: 1px solid #e8e8e8;
+        outline: none;
+        background-color: #fafafa;
+      }
+    }
+    .post-content {
+      width: 100%;
+      position: absolute;
+      top: 143px;
+      bottom: 0px;
+      .post-editor {
+        height: 100%;
+        border-right: 1px solid #e8e8e8;
+      }
+      .post-preview {
+        height: 100%;
       }
     }
   }

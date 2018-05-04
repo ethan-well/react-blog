@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import {Row, Col} from 'antd';
+import {Row, Col, Input} from 'antd';
 import Editor from '../layouts/Editor';
 
-const input = '# This is a header\n\nAnd this is a paragraph'
-
-class CreateBlog extends React.Component {
+class PostEditor extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,10 +11,10 @@ class CreateBlog extends React.Component {
     return(
       <Editor>
         <div className='write-post-area'>
-          <Row className='title'>
-            <Col>Title</Col>
-          </Row>
-          <Row className='content'>
+          <div className='title'>
+              <input placeholder="文章标题" type='text' />
+          </div>
+          <Row className='post-content'>
             <Col span={12} className="post-editor">
               editor
             </Col>
@@ -30,4 +28,4 @@ class CreateBlog extends React.Component {
   }
 }
 
-export default Editor;
+export default PostEditor;
