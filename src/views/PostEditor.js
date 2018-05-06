@@ -16,20 +16,20 @@ class PostEditor extends React.Component {
       post_content: '',
       post_prev: '',
       validate: false,
-      is_edit: this.props.match.params.id ? true : false
+      is_edit: this.props.match.params.id ? true : false,
+      article_id: this.props.match.params.id,
     }
   }
 
   componentWillMount() {
     if(this.state.is_edit){
-      const url = `http://localhost:3000/api/articles/show?id=${this.props.match.params.id}`;
+      const url = `http://localhost:3000/api/articles/show?id=${this.state.article_id}`;
       HttpHandler.GetHandler(url, this.initArticle)
     }
   }
 
   initArticle = (data) => {
     if(data['status'] === 1) {
-      console.log(data);
       this.setState({ post_title: data['article'].title, post_content: data['article'].content })
     }
   }
@@ -60,6 +60,10 @@ class PostEditor extends React.Component {
     this.setState({post_title: event.target.value});
   }
 
+  goBackLink =() =>{
+    return(this.state.is_edit ? <Link to={`/post_show/${this.state.article_id}`} > 返回 </Link> : '')
+  }
+
   render(){
     return(
       <Editor>
@@ -71,6 +75,7 @@ class PostEditor extends React.Component {
             <Col span={12} className="operator-area">
               <span>
                 <Link to="#" onClick={this.savePost}> 发布 </Link>
+                {this.goBackLink()}
               </span>
             </Col>
           </Row>

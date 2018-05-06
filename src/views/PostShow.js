@@ -19,7 +19,6 @@ class PostShow extends Component {
 
   callback = (data) => {
     if(data['status'] === 1) {
-      console.log(data)
       this.setState({load_succeed: true, article: data['article']});
     }
   }
