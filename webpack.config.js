@@ -2,7 +2,7 @@ const path = require('path');
 var webpack = require('webpack');
 
 const config = {
-  entry: './src/app.js',
+  entry: ['babel-polyfill','./src/app.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'main.js'
@@ -15,12 +15,6 @@ const config = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['es2015', 'react', 'stage-1'],
-            plugins: [
-              ['import', { 'libraryName': 'antd', 'style': 'css', }]
-            ]
-          }
         }
       },
       {

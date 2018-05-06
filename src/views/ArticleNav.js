@@ -7,7 +7,6 @@ class ArticleNav extends React.Component {
     this.state = {
       current_key: 'Javscript'
     }
-    this.onTabChange = this.onTabChange.bind(this);
   }
 
   onTabChange = (key) => {

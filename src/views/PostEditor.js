@@ -1,25 +1,71 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import {Row, Col, Input} from 'antd';
-import Editor from '../layouts/Editor';
+import {Row, Col, Input, Icon} from 'antd';
+import { Link, Redirect } from 'react-router-dom';
+import { browserHistory } from 'react-router';
 
+import createHistory from "history/createBrowserHistory"
+import Editor from '../layouts/Editor';
+import * as HttpHandler from '../conserns/HttpHandler';
+
+const history = createHistory({basename: "/", forceRefresh: true})
 class PostEditor extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      post_title: '',
+      post_content: '',
+      post_prev: '',
+      validate: false,
+    }
   }
+
+  componentDidMount(){
+    // const input = document.getElementById('post-title');
+    // input.focus();
+    this.refs.post_title.focus();
+  }
+
+  callback = (data) => {
+    if(data['status'] === 1) {
+      history.push(`/post_show/${data['id']}`);
+    }
+  }
+
+  savePost = () => {
+    const url = 'http://localhost:3000/api/articles/create';
+    const data = {title: this.state.post_title, content: this.state.post_content};
+    const res = HttpHandler.postHandler(url, data, this.callback);
+  }
+
+  changePostContent = (event) => {
+    this.setState({post_content: event.target.value});
+  }
+
+  changePostTitle = (event) => {
+    this.setState({post_title: event.target.value});
+  }
+
   render(){
     return(
       <Editor>
         <div className='write-post-area'>
-          <div className='title'>
-              <input placeholder="文章标题" type='text' />
-          </div>
+          <Row className='title-area'>
+            <Col span={12} className="title">
+              <input id="post-title" placeholder="文章标题" type='text' onChange={this.changePostTitle} defaultValue={this.state.post_title} ref="post_title" />
+            </Col>
+            <Col span={12} className="operator-area">
+              <span>
+                <Link to="#" onClick={this.savePost}> 发布 </Link>
+              </span>
+            </Col>
+          </Row>
           <Row className='post-content'>
             <Col span={12} className="post-editor">
-              editor
+             <textarea placeholder="开始你的创作..." defaultValue={this.state.post_content} onChange={this.changePostContent} />
             </Col>
             <Col span={12} className='post-preview'>
-              preview
+              <ReactMarkdown source={this.state.post_content} />
             </Col>
           </Row>
         </div>

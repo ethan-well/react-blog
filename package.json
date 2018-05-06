@@ -6,16 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack --mode=development",
-    "start": "./node_modules/.bin/webpack-dev-server --history-api-fallback"
+    "start": "./node_modules/.bin/webpack-dev-server --mode=development --history-api-fallback"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
     "antd": "^3.4.2",
     "babel": "^6.23.0",
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^8.0.0-beta.2",
+    "babel-polyfill": "^6.26.0",
+    "history": "^4.7.2",
     "react": "^16.3.2",
+    "react-contenteditable": "^2.1.0",
     "react-dom": "^16.3.2",
     "react-markdown": "^3.3.0",
     "react-redux": "^5.0.7",
@@ -23,10 +29,11 @@
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
     "redux": "^4.0.0",
-    "webpack": "^4.6.0",
+    "webpack": "^4.7.0",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.0.0-beta.46",
     "babel-cli": "^6.26.0",
     "babel-plugin-import": "^1.7.0",
     "babel-preset-env": "^1.6.1",

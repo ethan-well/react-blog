@@ -1,27 +1,15 @@
 html, body {
   background-color: #fafafa;
-
+  a {
+    color: #595959;
+    text-decoration: none;
+  }
+  a:active {
+    color: #262626;
+  }
   .header {
     border-bottom: 1px solid #e8e8e8;
     padding: 0px;
-    a {
-      color: #595959;
-      text-decoration: none;
-    }
-    a:active {
-      color: #262626;
-    }
-    .header-nav.header-nav-right {
-      float: right;
-      .header-nav-list{
-        list-style: none;
-        padding: 0px;
-        .header-nav-item{
-          display: inline-block;
-          padding-left: 40px;
-        }
-      }
-    }
   }
 
   .post .content {
@@ -30,31 +18,62 @@ html, body {
   }
 
   .write-post-area {
-    .title {
+    caret-color: #3f87a6;
+    .title-area {
+      height: 60px;
       width: 100%;
-      input {
+      font-size: 18px;
+      .title input {
         padding-top: 30px;
         width: 100%;
-        font-size: 18px;
-        height: 60px;
+        min-height: 100%;
         padding-left: 20px;
         border: none;
-        border-bottom: 1px solid #e8e8e8;
         outline: none;
         background-color: #fafafa;
       }
+      .operator-area{
+        height: 60px;
+        position: relative;
+        span {
+          display: inline-block;
+          position: absolute;
+          bottom: 2px;
+          .anticon-save:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
     }
     .post-content {
+      min-width: 100%;
       width: 100%;
       position: absolute;
-      top: 143px;
+      top: 123px;
       bottom: 0px;
+      border-top: 1px solid #e8e8e8;
       .post-editor {
         height: 100%;
         border-right: 1px solid #e8e8e8;
+        padding: 0px;
+      }
+      .post-editor textarea{
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline-style: none;
+        resize: none;
+        padding: 10px 0px 0px 10px;
       }
       .post-preview {
         height: 100%;
+        padding: 10px 5px 0px 10px;
+      }
+
+      .post-preview div {
+        height: 100%;
+        overflow: scroll;
       }
     }
   }
