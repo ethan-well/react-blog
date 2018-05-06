@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import {Row, Col, Input, Icon} from 'antd';
+const { TextArea } = Input;
 import { Link, Redirect } from 'react-router-dom';
-import { browserHistory } from 'react-router';
-
 import createHistory from "history/createBrowserHistory"
 import Editor from '../layouts/Editor';
 import * as HttpHandler from '../conserns/HttpHandler';
@@ -17,10 +16,25 @@ class PostEditor extends React.Component {
       post_content: '',
       post_prev: '',
       validate: false,
+      is_edit: this.props.match.params.id ? true : false
     }
   }
 
-  componentDidMount(){
+  componentWillMount() {
+    if(this.state.is_edit){
+      const url = `http://localhost:3000/api/articles/show?id=${this.props.match.params.id}`;
+      HttpHandler.GetHandler(url, this.initArticle)
+    }
+  }
+
+  initArticle = (data) => {
+    if(data['status'] === 1) {
+      console.log(data);
+      this.setState({ post_title: data['article'].title, post_content: data['article'].content })
+    }
+  }
+
+  componentDidMount() {
     // const input = document.getElementById('post-title');
     // input.focus();
     this.refs.post_title.focus();
@@ -62,7 +76,7 @@ class PostEditor extends React.Component {
           </Row>
           <Row className='post-content'>
             <Col span={12} className="post-editor">
-             <textarea placeholder="开始你的创作..." defaultValue={this.state.post_content} onChange={this.changePostContent} />
+             <textarea placeholder="开始你的创作..." value={this.state.post_content} onChange={this.changePostContent}/>
             </Col>
             <Col span={12} className='post-preview'>
               <ReactMarkdown source={this.state.post_content} />

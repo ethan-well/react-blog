@@ -34,7 +34,7 @@ class PostShow extends Component {
     ? <Row>
         <div className='title'>
           {this.state.article.title}
-          <Link to={`/edit/${this.state.article_id}`} className='post-edit'>
+          <Link to={`/psot_edit/${this.state.article_id}`} className='post-edit'>
             <Icon type="edit" />
           </Link>
         </div>

@@ -15,8 +15,9 @@ class RouteComponent extends React.Component {
         <div>
           <Route exact path="/" component={Home}></Route>
           <Route path="/detail/:id" component={Detail}></Route>
-          <Route path="/create_blog" component={PostEditor}></Route>
+          <Route path="/post_new" component={PostEditor}></Route>
           <Route path="/post_show/:id" component={PostShow}></Route>
+          <Route path="/psot_edit/:id" component={PostEditor}></Route>
         </div>
       </Router>
     );
