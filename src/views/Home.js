@@ -17,7 +17,7 @@ class Home extends Component {
                 <div className="article-are">
                   <Menu
                     mode="horizontal"
-                    selectedKeys="posts"
+                    selectedKeys={['posts']}
                   >
                     <Menu.Item key='posts'>
                       <Icon type="appstore"/>文章列表
