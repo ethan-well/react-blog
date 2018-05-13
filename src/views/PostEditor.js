@@ -26,7 +26,7 @@ class PostEditor extends React.Component {
       article_id: this.props.match.params.id,
       show_tags_selector: false,
       tag_list: new Set(),
-      default_category_id : 1,
+      category: 1,
       alert_it: false,
       alert_message: '',
       alert_type: 'warning',
@@ -120,10 +120,14 @@ class PostEditor extends React.Component {
     } else {
       this.setState({
         alert_it: true,
-        alert_message: '发布失败',
+        alert_message: data['msg'],
         alert_type: 'error',
       })
     }
+  }
+
+  handleClose = () => {
+    this.setState({alert_it: false});
   }
 
   postTagsSelector = () => {
@@ -135,7 +139,7 @@ class PostEditor extends React.Component {
       >
         <p>选择分类</p>
         <div style={{ marginTop: 16, marginBottom: 10 }}>
-          <RadioGroup defaultValue={this.state.default_category_id} onChange={this.categoryHandleChange}>
+          <RadioGroup defaultValue={this.state.category} onChange={this.categoryHandleChange}>
             {
               this.state.categries.map((item) => { return <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton> } )
             }
@@ -184,7 +188,7 @@ class PostEditor extends React.Component {
         </div>
         {
           this.state.alert_it ?
-            <AlertIt message={this.state.alert_message} type={this.state.alert_type}/>
+            <AlertIt message={this.state.alert_message} handleClose={this.handleClose} type={this.state.alert_type}/>
           : null
         }
       </Editor>

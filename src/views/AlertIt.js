@@ -23,6 +23,7 @@ class AlertIt extends React.Component {
               message={this.props.message}
               type={this.props.type}
               closable
+              onClose={this.props.handleClose}
               afterClose={this.handleClose}
             />
           ) : null
