@@ -26,10 +26,11 @@ class PostEditor extends React.Component {
       article_id: this.props.match.params.id,
       show_tags_selector: false,
       tag_list: new Set(),
-      type: 'JavaScript',
+      default_category_id : 1,
       alert_it: false,
       alert_message: '',
       alert_type: 'warning',
+      categries: [],
     }
   }
 
@@ -52,6 +53,8 @@ class PostEditor extends React.Component {
       const url = `http://localhost:3000/api/articles/show?id=${this.state.article_id}`;
       HttpHandler.GetHandler(url, this.initArticle)
     }
+    const url = 'http://localhost:3000//api/categries/get_lists';
+    HttpHandler.GetHandler(url, this.initCategories);
   }
 
   initArticle = (data) => {
@@ -60,9 +63,13 @@ class PostEditor extends React.Component {
     }
   }
 
+  initCategories = (data) => {
+    if(data['status'] === 1) {
+      this.setState({ categries: data.categries});
+    }
+  }
+
   componentDidMount() {
-    // const input = document.getElementById('post-title');
-    // input.focus();
     this.refs.post_title.focus();
   }
 
@@ -88,8 +95,8 @@ class PostEditor extends React.Component {
     e.stopPropagation();
   }
 
-  typeHandleChange = (e) => {
-    this.setState({type: e.target.value});
+  categoryHandleChange = (e) => {
+    this.setState({category: e.target.value});
   }
 
   publishHandle = (e) => {
@@ -101,7 +108,7 @@ class PostEditor extends React.Component {
       });
     } else {
       const url = 'http://localhost:3000/api/articles/create';
-      const data = {title: this.state.post_title, content: this.state.post_content};
+      const data = {title: this.state.post_title, content: this.state.post_content, category: this.state.category, tags: this.state.tag_list};
       const res = HttpHandler.postHandler(url, data, this.callback);
     }
     this.setState({show_tags_selector: false});
@@ -128,12 +135,10 @@ class PostEditor extends React.Component {
       >
         <p>选择分类</p>
         <div style={{ marginTop: 16, marginBottom: 10 }}>
-          <RadioGroup defaultValue={this.state.type} onChange={this.typeHandleChange}>
-            <RadioButton value="JavaScript">JavaScript</RadioButton>
-            <RadioButton value="Ruby">Ruby</RadioButton>
-            <RadioButton value="React">React</RadioButton>
-            <RadioButton value="Linux">Linux</RadioButton>
-            <RadioButton value="DB">DB</RadioButton>
+          <RadioGroup defaultValue={this.state.default_category_id} onChange={this.categoryHandleChange}>
+            {
+              this.state.categries.map((item) => { return <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton> } )
+            }
           </RadioGroup>
         </div>
         <p>选择标签</p>
