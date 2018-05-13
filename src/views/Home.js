@@ -20,7 +20,7 @@ class Home extends Component {
                     selectedKeys={['posts']}
                   >
                     <Menu.Item key='posts'>
-                      <Icon type="appstore"/>文章列表
+                      <Icon type="appstore"/>最新文章列表
                     </Menu.Item>
                   </Menu>
                   <ArticleList />
