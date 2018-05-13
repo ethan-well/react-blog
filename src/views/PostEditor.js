@@ -30,7 +30,7 @@ class PostEditor extends React.Component {
       alert_it: false,
       alert_message: '',
       alert_type: 'warning',
-      categries: [],
+      categories: [],
     }
   }
 
@@ -53,7 +53,7 @@ class PostEditor extends React.Component {
       const url = `http://localhost:3000/api/articles/show?id=${this.state.article_id}`;
       HttpHandler.GetHandler(url, this.initArticle)
     }
-    const url = 'http://localhost:3000//api/categries/get_lists';
+    const url = 'http://localhost:3000//api/categories/get_lists';
     HttpHandler.GetHandler(url, this.initCategories);
   }
 
@@ -65,7 +65,7 @@ class PostEditor extends React.Component {
 
   initCategories = (data) => {
     if(data['status'] === 1) {
-      this.setState({ categries: data.categries});
+      this.setState({ categories: data.categories});
     }
   }
 
@@ -141,7 +141,7 @@ class PostEditor extends React.Component {
         <div style={{ marginTop: 16, marginBottom: 10 }}>
           <RadioGroup defaultValue={this.state.category} onChange={this.categoryHandleChange}>
             {
-              this.state.categries.map((item) => { return <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton> } )
+              this.state.categories.map((item) => { return <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton> } )
             }
           </RadioGroup>
         </div>
