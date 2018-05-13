@@ -6,14 +6,14 @@ const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 import { Link, Redirect } from 'react-router-dom';
 import createHistory from "history/createBrowserHistory"
+const history = createHistory({basename: "/", forceRefresh: true})
 import Editor from '../layouts/Editor';
 import * as HttpHandler from '../conserns/HttpHandler';
 import UserAvatar from '../layouts/UserAvatar';
 import MyTag from './MyTag';
 import PropTypes from 'prop-types';
+import AlertIt from './AlertIt';
 
-
-const history = createHistory({basename: "/", forceRefresh: true})
 class PostEditor extends React.Component {
   constructor(props) {
     super(props);
@@ -27,6 +27,9 @@ class PostEditor extends React.Component {
       show_tags_selector: false,
       tag_list: new Set(),
       type: 'JavaScript',
+      alert_it: false,
+      alert_message: '',
+      alert_type: 'warning',
     }
   }
 
@@ -91,19 +94,28 @@ class PostEditor extends React.Component {
 
   publishHandle = (e) => {
     if(!this.state.validate){
-      alert('文章内容不能少于200子');
+      this.setState({
+        alert_it: true,
+        alert_message: '文章字数不能少于 200',
+        alert_type: 'warning',
+      });
     } else {
       const url = 'http://localhost:3000/api/articles/create';
       const data = {title: this.state.post_title, content: this.state.post_content};
       const res = HttpHandler.postHandler(url, data, this.callback);
     }
+    this.setState({show_tags_selector: false});
   }
 
   callback = (data) => {
     if(data['status'] === 1) {
       history.push(`/post_show/${data['id']}`);
     } else {
-      alert('发布失败');
+      this.setState({
+        alert_it: true,
+        alert_message: '发布失败',
+        alert_type: 'error',
+      })
     }
   }
 
@@ -165,6 +177,11 @@ class PostEditor extends React.Component {
             </Col>
           </Row>
         </div>
+        {
+          this.state.alert_it ?
+            <AlertIt message={this.state.alert_message} type={this.state.alert_type}/>
+          : null
+        }
       </Editor>
     )
   }

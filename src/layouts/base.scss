@@ -55,4 +55,15 @@ html, body {
     min-width: 20px;
     background-color: #fafafa;
   }
+
+  .alert-it {
+    position: fixed;
+    top: 40px;
+    right: 50px;
+    z-index: 3;
+    a.ant-alert-close-icon {
+      top: -2px;
+      right: 2px;
+    }
+  }
 }
