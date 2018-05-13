@@ -51,7 +51,7 @@ class PostShow extends Component {
             {article_show}
           </Col>
           <Col span={6}>
-            <ArticleNav />
+            <ArticleNav articleId= {this.state.article_id} />
           </Col>
           <Col span={2}></Col>
         </Row>

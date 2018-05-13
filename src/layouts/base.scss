@@ -8,9 +8,6 @@ html, body {
   a:hover {
     color: #262626;
   }
-  a:visited {
-    color: red;
-  }
   .header {
     border-bottom: 1px solid #e8e8e8;
     padding: 0px;
@@ -48,6 +45,13 @@ html, body {
           height: 49px;
         }
       }
+    }
+
+    a.article-nav-link-list {
+      display: block;
+    }
+    a.article-nav-link-list.active {
+      color: #1890ff;
     }
   }
 
