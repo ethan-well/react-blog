@@ -27,7 +27,7 @@ class Index extends React.Component {
         <Content className="content">
           {this.props.children}
         </Content>
-        <Footer className="footer">Footer</Footer>
+        <Footer className="footer"></Footer>
       </Layout>
     )
   }

@@ -17,20 +17,6 @@ class Editor extends React.Component {
   render(){
     return(
       <Layout className="post">
-        <Header className="header" style={{ backgroundColor: '#fff' }}>
-          <Row>
-            <Col span={2}></Col>
-            <Col span={18}>
-              {this.state.header_title}
-            </Col>
-            <Col span={2}></Col>
-            <Col span={2}>
-              <Link to="/" title="返回主页">
-                <UserAvatar />
-              </Link>
-            </Col>
-          </Row>
-        </Header>
         <Content className="content">
           {this.props.children}
         </Content>

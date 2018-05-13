@@ -1,5 +1,16 @@
 html, body {
   background-color: #fafafa;
+  a {
+    color: #595959;
+    text-decoration: none;
+  }
+  a:active,
+  a:hover {
+    color: #262626;
+  }
+  a:visited {
+    color: red;
+  }
   .header {
     border-bottom: 1px solid #e8e8e8;
     padding: 0px;
@@ -41,6 +52,7 @@ html, body {
   }
 
   .footer {
+    min-width: 20px;
     background-color: #fafafa;
   }
 }

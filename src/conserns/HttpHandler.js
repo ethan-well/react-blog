@@ -1,5 +1,3 @@
-import { browserHistory } from 'react-router-dom';
-
 export const postHandler = (url, data, callback) => {
   fetch(url, {
     method: 'POST',

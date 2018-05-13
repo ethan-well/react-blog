@@ -1,11 +1,7 @@
 html, body {
   background-color: #fafafa;
-  a {
-    color: #595959;
-    text-decoration: none;
-  }
-  a:active {
-    color: #262626;
+  .clear {
+    clear: none;
   }
   .header {
     border-bottom: 1px solid #e8e8e8;
@@ -33,24 +29,48 @@ html, body {
         background-color: #fafafa;
       }
       .operator-area{
+        text-align: right;
+        padding-right: 20px;
         height: 60px;
-        position: relative;
-        span {
-          display: inline-block;
+        line-height: 60px;
+        .save-post {
+          position: relative;
+          color: #40a9ff;
+        }
+        .save-post:hover {
+          cursor: pointer;
+          color: #1890ff;
+        }
+        .save-post i:before {
+          font-size: 10px;
           position: absolute;
-          bottom: 2px;
-          .anticon-save:hover {
-            cursor: pointer;
+          top: 3px;
+          right: -16px;
+        }
+
+        .save-post .post-tags-selector {
+          position: absolute;
+          width: 450px;
+          text-align: left;
+          z-index: 1;
+          opacity: .9;
+          top: 43px;
+          right: -11px;
+          .ant-card-body:nth-child(2) {
+            padding-top: 5px;
           }
         }
       }
-
+      .operator-area > * {
+        margin-right: 30px;
+      }
     }
+
     .post-content {
       min-width: 100%;
       width: 100%;
       position: absolute;
-      top: 123px;
+      top: 60px;
       bottom: 0px;
       border-top: 1px solid #e8e8e8;
       .post-editor {

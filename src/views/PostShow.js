@@ -22,10 +22,10 @@ class PostShow extends Component {
       this.setState({load_succeed: true, article: data['article']});
     }
   }
-
+í
   componentWillMount(){
     const url = `http://localhost:3000/api/articles/show?id=${this.state.article_id}`;
-    HttpHandler.GetHandler(url, this.callback)
+    HttpHandler.GetHandler(url, this.callback);
   }
 
   render() {
