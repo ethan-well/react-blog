@@ -14,14 +14,13 @@ class PostShow extends Component {
       load_succeed: false,
       article_id: this.props.match.params.id,
       article: {},
-      category_id: '1',
     }
   }
 
   callback = (data) => {
     if(data['status'] === 1) {
       console.log(data);
-      this.setState({load_succeed: true, article: data['article'], category_id: `${data['category_id']}` });
+      this.setState({load_succeed: true, article: data['article']});
     }
   }
 
@@ -53,8 +52,7 @@ class PostShow extends Component {
             {article_show}
           </Col>
           <Col span={6}>
-            {console.log(this.state.category_id)}
-            <ArticleNav articleId={this.state.article_id} categoryId={this.state.category_id} />
+            <ArticleNav articleId={this.state.article_id} categoryId={`${this.state.article.category_id}`} />
           </Col>
           <Col span={2}></Col>
         </Row>
