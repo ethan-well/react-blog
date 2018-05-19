@@ -7,7 +7,7 @@ class ArticleNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_key: '1',
+      current_key: this.props.categoryId || '1',
       categories: [],
       articles: [],
     }
@@ -24,6 +24,14 @@ class ArticleNav extends React.Component {
     HttpHandler.GetHandler(url, this.initCategories);
     const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${this.state.current_key}`
     HttpHandler.GetHandler(url2, this.initArticleList);
+  }
+
+  componentWillReceiveProps(nextprops) {
+    if(nextprops.categoryId !== this.props.category_id) {
+      this.setState({current_key: nextprops.categoryId});
+      const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${nextprops.categoryId}`
+      HttpHandler.GetHandler(url2, this.initArticleList);
+    }
   }
 
   initCategories = (data) => {
