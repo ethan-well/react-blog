@@ -22,13 +22,14 @@ class ArticleNav extends React.Component {
   componentWillMount() {
     const url = 'http://localhost:3000//api/categories/get_lists';
     HttpHandler.GetHandler(url, this.initCategories);
+
     const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${this.state.current_key}`
     HttpHandler.GetHandler(url2, this.initArticleList);
   }
 
   componentWillReceiveProps(nextprops) {
     if(nextprops.categoryId !== this.props.category_id) {
-      this.setState({current_key: nextprops.categoryId});
+      this.setState({current_key: `${nextprops.categoryId}`});
       const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${nextprops.categoryId}`
       HttpHandler.GetHandler(url2, this.initArticleList);
     }

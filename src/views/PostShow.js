@@ -52,7 +52,7 @@ class PostShow extends Component {
             {article_show}
           </Col>
           <Col span={6}>
-            <ArticleNav articleId={this.state.article_id} categoryId={`${this.state.article.category_id}`} />
+            <ArticleNav articleId={this.state.article_id} categoryId={this.state.article.category_id} />
           </Col>
           <Col span={2}></Col>
         </Row>
