@@ -107,9 +107,15 @@ class PostEditor extends React.Component {
         alert_type: 'warning',
       });
     } else {
-      const url = 'http://localhost:3000/api/articles/create';
       const data = {title: this.state.post_title, content: this.state.post_content, category: this.state.category, tags: this.state.tag_list};
-      const res = HttpHandler.postHandler(url, data, this.callback);
+
+      if(this.state.is_edit){
+        const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+        const res = HttpHandler.PutHandler(url, data, this.callback);
+      } else {
+        const url = 'http://localhost:3000/api/articles/create';
+        const res = HttpHandler.postHandler(url, data, this.callback);
+      }
     }
     this.setState({show_tags_selector: false});
   }
