@@ -24,7 +24,7 @@ class PostShow extends Component {
   }
 
   componentWillMount(){
-    const url = `http://localhost:3000/api/articles/show?id=${this.state.article_id}`;
+    const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
     HttpHandler.GetHandler(url, this.callback);
   }
 

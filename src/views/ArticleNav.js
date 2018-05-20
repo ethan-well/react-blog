@@ -15,22 +15,22 @@ class ArticleNav extends React.Component {
 
   onTabChange = (key) => {
     this.setState({ current_key: key });
-    const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${key}`
+    const url2 = `http://localhost:3000/api/categories/${key}/articles`
     HttpHandler.GetHandler(url2, this.initArticleList);
   }
 
   componentWillMount() {
-    const url = 'http://localhost:3000//api/categories/get_lists';
+    const url = 'http://localhost:3000/api/categories';
     HttpHandler.GetHandler(url, this.initCategories);
 
-    const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${this.state.current_key}`
+    const url2 = `http://localhost:3000/api/categories/${this.state.current_key}/articles`
     HttpHandler.GetHandler(url2, this.initArticleList);
   }
 
   componentWillReceiveProps(nextprops) {
     if(nextprops.categoryId !== this.props.category_id) {
       this.setState({current_key: `${nextprops.categoryId}`});
-      const url2 = `http://localhost:3000/api/category_articles/get_lists?category=${nextprops.categoryId}`
+      const url2 = `http://localhost:3000/api/categories/${nextprops.categoryId}/articles`
       HttpHandler.GetHandler(url2, this.initArticleList);
     }
   }

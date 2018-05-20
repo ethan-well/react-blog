@@ -50,10 +50,10 @@ class PostEditor extends React.Component {
 
   componentWillMount() {
     if(this.state.is_edit){
-      const url = `http://localhost:3000/api/articles/show?id=${this.state.article_id}`;
+      const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
       HttpHandler.GetHandler(url, this.initArticle)
     }
-    const url = 'http://localhost:3000//api/categories/get_lists';
+    const url = 'http://localhost:3000/api/categories';
     HttpHandler.GetHandler(url, this.initCategories);
   }
 
@@ -141,7 +141,7 @@ class PostEditor extends React.Component {
         const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
         const res = HttpHandler.PutHandler(url, data, this.callback);
       } else {
-        const url = 'http://localhost:3000/api/articles/create';
+        const url = 'http://localhost:3000/api/articles';
         const res = HttpHandler.postHandler(url, data, this.callback);
       }
     }
