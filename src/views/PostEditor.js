@@ -71,6 +71,34 @@ class PostEditor extends React.Component {
 
   componentDidMount() {
     this.refs.post_title.focus();
+    let textArea = document.getElementById('post_content_textarea');
+    textArea.addEventListener('keydown', (e) => {
+      if([9, 13, 32].indexOf(e.keyCode) !== -1){
+        let keyValue = ''
+        switch (e.keyCode) {
+          case 9: // tab was pressed
+            keyValue = '\t';
+            break;
+          case 32:
+            keyValue = ' '; // blank was pressed
+            break;
+          case 13:
+            keyValue = '\r\n';
+            break;
+          default:
+            console.log('this keydown skiped')
+        }
+
+        let start = e.target.selectionStart;
+        let end = e.target.selectionEnd;
+        let value = e.target.value;
+        e.target.value = (value.substring(0, start) + keyValue + value.substring(start))
+
+        e.target.selectionStart = e.target.selectionEnd = start + 1;
+
+        e.preventDefault();
+      }
+    })
   }
 
   changePostContent = (event) => {
@@ -185,7 +213,7 @@ class PostEditor extends React.Component {
           </Row>
           <Row className='post-content'>
             <Col span={12} className="post-editor">
-             <textarea placeholder="开始你的创作..." value={this.state.post_content} onChange={this.changePostContent}/>
+             <textarea id="post_content_textarea" placeholder="开始你的创作..." value={this.state.post_content} onChange={this.changePostContent}/>
             </Col>
             <Col span={12} className='post-preview'>
               <ReactMarkdown source={this.state.post_content} />
