@@ -12,7 +12,7 @@ class ArticleList extends React.Component {
   }
 
   componentWillMount(){
-    const url = 'http://localhost:3000/api/articles/get_lists';
+    const url = 'http://localhost:3000/api/articles';
     HttpHandler.GetHandler(url, this.callback);
   }
 
