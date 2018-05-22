@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col, Icon, Modal } from 'antd';
+const confirm = Modal.confirm;
 import Index from '../layouts/Index';
 import { Link } from 'react-router-dom';
 import ArticleNav from '../views/ArticleNav';
@@ -36,9 +37,18 @@ class PostShow extends Component {
     }
   }
 
-  handleDeletePost = () => {
-    const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
-    HttpHandler.DeleteHandler(url, this.deleteCallback);
+  showDeleteConfirm = () => {
+    confirm({
+      title: '确定删除当前文章？',
+      content: '删除后将不会恢复，请谨慎操作',
+      okText: '确定',
+      okType: 'danger',
+      cancelText: '取消',
+      onOk: () => {
+        const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+        HttpHandler.DeleteHandler(url, this.deleteCallback);
+      }
+    });
   }
 
   render() {
@@ -49,8 +59,8 @@ class PostShow extends Component {
           <Link to={`/psot_edit/${this.state.article_id}`} className='post-edit'>
             <Icon type="edit" />
           </Link>
-          <a onClick={this.handleDeletePost} className='post-delete'>
-            <Icon type="delete" />
+          <a onClick={this.showDeleteConfirm} className="post-delete">
+            <Icon type="delete"></Icon>
           </a>
         </div>
         <div className='content'><ReactMarkdown source={this.state.article.content}/></div>
