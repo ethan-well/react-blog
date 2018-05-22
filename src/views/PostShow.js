@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import ArticleNav from '../views/ArticleNav';
 import * as HttpHandler from '../conserns/HttpHandler';
 import Style from '../layouts/post_show_area.scss';
+import createHistory from "history/createBrowserHistory";
+const history = createHistory({basename: "/", forceRefresh: true});
 
 class PostShow extends Component {
   constructor(props) {
@@ -28,6 +30,17 @@ class PostShow extends Component {
     HttpHandler.GetHandler(url, this.callback);
   }
 
+  deleteCallback = (data) => {
+    if(data['status'] === 1) {
+      history.push('/');
+    }
+  }
+
+  handleDeletePost = () => {
+    const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+    HttpHandler.DeleteHandler(url, this.deleteCallback);
+  }
+
   render() {
     const article_show = this.state.load_succeed
     ? <Row>
@@ -36,6 +49,9 @@ class PostShow extends Component {
           <Link to={`/psot_edit/${this.state.article_id}`} className='post-edit'>
             <Icon type="edit" />
           </Link>
+          <a onClick={this.handleDeletePost} className='post-delete'>
+            <Icon type="delete" />
+          </a>
         </div>
         <div className='content'><ReactMarkdown source={this.state.article.content}/></div>
       </Row>

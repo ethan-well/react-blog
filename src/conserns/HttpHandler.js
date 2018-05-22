@@ -30,3 +30,15 @@ export const PutHandler = (url, data, callback) => {
   .catch(error => console.error('Error:', error))
   .then(response => callback(response))
 }
+
+export const DeleteHandler = (url, callback) => {
+  fetch(url, {
+    method: 'DELETE',
+    mode: 'cors',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+  }).then(response => response.json())
+  .then(response => callback(response))
+  .catch(error => console.log('Error', error))
+}

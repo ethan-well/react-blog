@@ -102,7 +102,7 @@ class PostEditor extends React.Component {
   }
 
   changePostContent = (event) => {
-    const content = event.target.value.trim();
+    const content = event.target.value;
     this.setState({post_content: content});
     if(content.length >= 200){
       this.setState({validate: true});
@@ -221,9 +221,8 @@ class PostEditor extends React.Component {
           </Row>
         </div>
         {
-          this.state.alert_it ?
+          this.state.alert_it &&
             <AlertIt message={this.state.alert_message} handleClose={this.handleClose} type={this.state.alert_type}/>
-          : null
         }
       </Editor>
     )
