@@ -31,6 +31,7 @@ class PostEditor extends React.Component {
       alert_message: '',
       alert_type: 'warning',
       categories: [],
+      length_saved: 0,
     }
   }
 
@@ -59,7 +60,7 @@ class PostEditor extends React.Component {
 
   initArticle = (data) => {
     if(data['status'] === 1) {
-      this.setState({ post_title: data['article'].title, post_content: data['article'].content })
+      this.setState({ post_title: data['article'].title, post_content: data['article'].content, length_saved: data['length'] })
     }
   }
 
@@ -101,11 +102,35 @@ class PostEditor extends React.Component {
     })
   }
 
+  syncCallback = (data) => {
+    if(data['status'] == 1) {
+      this.setState({ sync_succeed: true, is_edit: true, article_id: data['id'], length_saved: data['length']});
+    } else {
+      this.setState({ sync_succeed: false});
+    }
+  }
+
+  syncIt = (content) => {
+    const post_title = this.state.post_title || content.substr(0, 10);
+    const data = {title: post_title, content: content, category: this.state.category, tags: this.state.tag_list};
+    if(this.state.is_edit){
+      const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+      const res = HttpHandler.PutHandler(url, data, this.syncCallback);
+    } else {
+      const url = 'http://localhost:3000/api/articles';
+      const res = HttpHandler.postHandler(url, data, this.syncCallback);
+    }
+  }
+
   changePostContent = (event) => {
     const content = event.target.value;
+    const change_char_len = Math.abs(content.length - this.state.length_saved)
     this.setState({post_content: content});
-    if(content.length >= 200){
+    if(content.length >= 1){
       this.setState({validate: true});
+      if(change_char_len >= 10) {
+        this.syncIt(content);
+      }
     } else {
       this.setState({validate: false});
     }
@@ -131,7 +156,7 @@ class PostEditor extends React.Component {
     if(!this.state.validate){
       this.setState({
         alert_it: true,
-        alert_message: '文章字数不能少于 200',
+        alert_message: '文章内容不能为空',
         alert_type: 'warning',
       });
     } else {
