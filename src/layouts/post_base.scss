@@ -93,7 +93,8 @@ html, body {
 
       .post-preview div {
         height: 100%;
-        overflow: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
     }
   }
