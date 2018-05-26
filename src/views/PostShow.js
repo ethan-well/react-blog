@@ -17,6 +17,7 @@ class PostShow extends Component {
       load_succeed: false,
       article_id: this.props.match.params.id,
       article: {},
+      access_token: sessionStorage.getItem('access_token'),
     }
   }
 
@@ -56,12 +57,17 @@ class PostShow extends Component {
     ? <Row>
         <div className='title'>
           {this.state.article.title}
-          <Link to={`/psot_edit/${this.state.article_id}`} className='post-edit'>
-            <Icon type="edit" />
-          </Link>
-          <a onClick={this.showDeleteConfirm} className="post-delete">
-            <Icon type="delete"></Icon>
-          </a>
+          {
+            this.state.access_token &&
+            <span>
+              <Link to={`/psot_edit/${this.state.article_id}`} className='post-edit'>
+                <Icon type="edit" />
+              </Link>
+              <a onClick={this.showDeleteConfirm} className="post-delete">
+                <Icon type="delete"></Icon>
+              </a>
+            </span>
+          }
         </div>
         <div className='content'><ReactMarkdown source={this.state.article.content}/></div>
       </Row>

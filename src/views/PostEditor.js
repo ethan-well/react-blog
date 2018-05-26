@@ -33,6 +33,7 @@ class PostEditor extends React.Component {
       categories: [],
       length_saved: 0,
       sync_status: 'pending',
+      access_token: sessionStorage.getItem('access_token'),
     }
   }
 
