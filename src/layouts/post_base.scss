@@ -60,6 +60,10 @@ html, body {
             padding-top: 5px;
           }
         }
+
+        .syncing-failed {
+          color: red;
+        }
       }
       .operator-area > * {
         margin-right: 30px;

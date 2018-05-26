@@ -32,6 +32,7 @@ class PostEditor extends React.Component {
       alert_type: 'warning',
       categories: [],
       length_saved: 0,
+      sync_status: 'pending',
     }
   }
 
@@ -104,13 +105,14 @@ class PostEditor extends React.Component {
 
   syncCallback = (data) => {
     if(data['status'] == 1) {
-      this.setState({ sync_succeed: true, is_edit: true, article_id: data['id'], length_saved: data['length']});
+      this.setState({ sync_status: 'pending', is_edit: true, article_id: data['id'], length_saved: data['length']});
     } else {
-      this.setState({ sync_succeed: false});
+      this.setState({ sync_status: 'failed'});
     }
   }
 
   syncIt = (content) => {
+    this.setState({sync_status: 'syncing'});
     const post_title = this.state.post_title || content.substr(0, 10);
     const data = {title: post_title, content: content, category: this.state.category, tags: this.state.tag_list};
     if(this.state.is_edit){
@@ -225,6 +227,10 @@ class PostEditor extends React.Component {
               <input id="post-title" placeholder="文章标题" type='text' onChange={this.changePostTitle} value={this.state.post_title} ref="post_title" />
             </Col>
             <Col span={12} className="operator-area">
+              { (this.state.sync_status === 'syncing') ?
+                  <Icon type="loading-3-quarters" spin={true}/>
+                : (this.state.sync_status === 'failed') && <Icon type="loading-3-quarters" className='syncing-failed'/>
+              }
               <a className='save-post' onClick={this.tags_selector_handler}>
                 发布
                 <Icon type={this.state.show_tags_selector ? "caret-up" : "caret-down" } />
