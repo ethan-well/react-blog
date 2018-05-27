@@ -6,6 +6,25 @@ html, body {
   .header {
     border-bottom: 1px solid #e8e8e8;
     padding: 0px;
+
+    .user-avatar-panel {
+      position: relative;
+      .avatar-operation-panel {
+        z-index: 3;
+        position: absolute;
+        right: 0px;
+        width: 200px;
+      }
+      i {
+        margin-left: 4px;
+        &::before {
+          font-size: 10px;
+        }
+      }
+      i.active {
+        color: #1890ff;
+      }
+    }
   }
 
   .post .content {

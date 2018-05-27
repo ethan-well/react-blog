@@ -18,7 +18,6 @@ class Index extends React.Component {
             <Col span={4}>
             </Col>
             <Col span={18}>
-              <UserAvatar/>
               <Nav/>
             </Col>
             <Col span={2}></Col>
