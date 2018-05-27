@@ -4,6 +4,7 @@ import { Card, Button, Icon, Menu, List } from 'antd';
 import UserAvatar from './UserAvatar';
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory({basename: "/", forceRefresh: true});
+import * as HttpHandler from '../conserns/HttpHandler';
 
 class Nav extends Component {
   constructor(props) {
@@ -22,9 +23,18 @@ class Nav extends Component {
     this.setState({show_user_avatar_operation_panel: false});
   }
 
+  handleLogut = (data) => {
+    if(data['status'] === 1) {
+      sessionStorage.removeItem('access_token');
+      history.push('/');
+    } else {
+      console.log(`logout error: ${date['message']}`);
+    }
+  }
+
   logOut = () => {
-    sessionStorage.removeItem('access_token');
-    history.push('/');
+    const url = `http://localhost:3000/api/auth/logout?access_token=${this.state.access_token}`;
+    HttpHandler.DeleteHandler(url, this.handleLogut);
   }
 
   pathAfterLogin = () => {
@@ -59,11 +69,18 @@ class Nav extends Component {
           <li className='header-nav-item'>
             <Link to="/create_site" >自建站</Link>
           </li>
-          <li className='header-nav-item user-avatar-panel' onMouseLeave={this.handleDisplayPanel} onMouseEnter={this.handleShowPanel}>
-            <UserAvatar/>
-            <Icon type="caret-down" className={this.state.show_user_avatar_operation_panel ? 'active' : ''} />
-            { avatar_operation_panel }
-          </li>
+          {
+            this.state.access_token ?
+              <li className='header-nav-item user-avatar-panel' onMouseLeave={this.handleDisplayPanel} onMouseEnter={this.handleShowPanel}>
+                <UserAvatar/>
+                <Icon type="caret-down" className={this.state.show_user_avatar_operation_panel ? 'active' : ''} />
+                { avatar_operation_panel }
+              </li>
+            :
+              <li className='header-nav-item user-avatar-panel'>
+                <UserAvatar/>
+              </li>
+          }
         </ul>
       </nav>
     );
