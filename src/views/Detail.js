@@ -8,7 +8,11 @@ class Detail extends Component {
       <Index>
         <Row>
           <Col span={4}></Col>
-          <Col span={18}>Detail</Col>
+          <Col span={16}>
+            <article>
+              暂时没有什么可说的！
+            </article>
+          </Col>
           <Col span={4}></Col>
         </Row>
       </Index>
