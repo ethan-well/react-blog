@@ -27,9 +27,13 @@ class Nav extends Component {
     history.push('/');
   }
 
+  pathAfterLogin = () => {
+    !this.state.access_token && sessionStorage.setItem('path_after_login', '/post_new');
+  }
+
   render() {
     const action = this.state.access_token ?
-      [<span><Icon type="logout" onClick={this.logOut} /> 退出 </span>] : []
+      [<span onClick={this.logOut} ><Icon type="logout" /> 退出 </span>] : []
     const avatar_operation_panel =
     <Card title="weiwei" onClick={this.stopPropagation}
       style={ {display: this.state.show_user_avatar_operation_panel ? '' : 'none'} }
@@ -49,8 +53,8 @@ class Nav extends Component {
           <li className='header-nav-item'>
             <Link to="/about_me" >关于我</Link>
           </li>
-          <li className='header-nav-item'>
-            <Link to="/post_new" >写文章</Link>
+          <li className='header-nav-item' onClick={this.pathAfterLogin}>
+            <Link to={this.state.access_token ? '/post_new' : '/login'} >写文章</Link>
           </li>
           <li className='header-nav-item'>
             <Link to="/create_site" >自建站</Link>

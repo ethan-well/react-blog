@@ -19,7 +19,7 @@ class NormalLoginForm extends React.Component {
   loginCallbak = (data) => {
     if(data['status'] === 1) {
       sessionStorage.setItem('access_token', data['access_token']);
-      history.push('/');
+      history.push(sessionStorage.getItem('path_after_login') || '/');
     } else {
       this.setState({
         alert_it: true,
