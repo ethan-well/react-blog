@@ -16,6 +16,7 @@ class Login extends React.Component {
             <h2>
               开始你的创作！
             </h2>
+            <h4>(本站写权限暂时未开放)</h4>
           </div>
           <LoginForm />
         </div>

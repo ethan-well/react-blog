@@ -40,8 +40,8 @@ class Nav extends Component {
       className="avatar-operation-panel"
       actions={action}
     >
-      <p>喜欢的文章</p>
-      <p>收藏的文章</p>
+      <p>我的喜欢（规划中）</p>
+      <p>我的收藏（规划中）</p>
     </Card>
 
     return (
@@ -51,7 +51,7 @@ class Nav extends Component {
             <Link to="/" >主页</Link>
           </li>
           <li className='header-nav-item'>
-            <Link to="/about_me" >关于我</Link>
+            <Link to="/about" >关于</Link>
           </li>
           <li className='header-nav-item' onClick={this.pathAfterLogin}>
             <Link to={this.state.access_token ? '/post_new' : '/login'} >写文章</Link>
