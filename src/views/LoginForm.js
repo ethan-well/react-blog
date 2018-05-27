@@ -16,6 +16,16 @@ class NormalLoginForm extends React.Component {
     }
   }
 
+  componentWillMount() {
+    if(sessionStorage.getItem('path_after_login')) {
+      this.setState({
+        alert_it: true,
+        alert_message: '继续操作前请先登录',
+        alert_type: 'warning',
+      })
+    }
+  }
+
   loginCallbak = (data) => {
     if(data['status'] === 1) {
       sessionStorage.setItem('access_token', data['access_token']);
