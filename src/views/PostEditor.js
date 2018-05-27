@@ -52,6 +52,11 @@ class PostEditor extends React.Component {
   }
 
   componentWillMount() {
+    if(!this.state.access_token) {
+      const path = this.state.is_edit ? `/psot_edit/${this.state.article_id}` : '/post_new';
+      sessionStorage.setItem('path_after_login', path);
+      history.push('/login');
+    }
     if(this.state.is_edit){
       const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
       HttpHandler.GetHandler(url, this.initArticle)
