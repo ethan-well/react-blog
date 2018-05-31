@@ -120,7 +120,13 @@ class PostEditor extends React.Component {
   syncIt = (content) => {
     this.setState({sync_status: 'syncing'});
     const post_title = this.state.post_title || content.substr(0, 10);
-    const data = {title: post_title, content: content, category: this.state.category, tags: this.state.tag_list};
+    const data = {
+      title: post_title,
+      content: content,
+      category: this.state.category,
+      tags: this.state.tag_list,
+      access_token: this.state.access_token,
+    };
     if(this.state.is_edit){
       const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
       const res = HttpHandler.PutHandler(url, data, this.syncCallback);
@@ -168,8 +174,14 @@ class PostEditor extends React.Component {
         alert_type: 'warning',
       });
     } else {
-      const data = {title: this.state.post_title, content: this.state.post_content, category: this.state.category, tags: this.state.tag_list};
-
+      const data = {
+        title: this.state.post_title,
+        content: this.state.post_content,
+        category: this.state.category,
+        tags: this.state.tag_list,
+        access_token: this.state.access_token,
+      };
+      console.log(data);
       if(this.state.is_edit){
         const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
         const res = HttpHandler.PutHandler(url, data, this.callback);

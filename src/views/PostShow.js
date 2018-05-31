@@ -46,7 +46,7 @@ class PostShow extends Component {
       okType: 'danger',
       cancelText: '取消',
       onOk: () => {
-        const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+        const url = `http://localhost:3000/api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
         HttpHandler.DeleteHandler(url, this.deleteCallback);
       }
     });
