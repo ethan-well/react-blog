@@ -28,7 +28,7 @@ class PostShow extends Component {
   }
 
   componentWillMount(){
-    const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+    const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}`;
     HttpHandler.GetHandler(url, this.callback);
   }
 
@@ -46,7 +46,7 @@ class PostShow extends Component {
       okType: 'danger',
       cancelText: '取消',
       onOk: () => {
-        const url = `http://localhost:3000/api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
+        const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
         HttpHandler.DeleteHandler(url, this.deleteCallback);
       }
     });

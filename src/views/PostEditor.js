@@ -58,10 +58,10 @@ class PostEditor extends React.Component {
       history.push('/login');
     }
     if(this.state.is_edit){
-      const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+      const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}`;
       HttpHandler.GetHandler(url, this.initArticle)
     }
-    const url = 'http://localhost:3000/api/categories';
+    const url = 'http://111.230.71.48:8080/api/categories';
     HttpHandler.GetHandler(url, this.initCategories);
   }
 
@@ -128,10 +128,10 @@ class PostEditor extends React.Component {
       access_token: this.state.access_token,
     };
     if(this.state.is_edit){
-      const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+      const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}`;
       const res = HttpHandler.PutHandler(url, data, this.syncCallback);
     } else {
-      const url = 'http://localhost:3000/api/articles';
+      const url = 'http://111.230.71.48:8080/api/articles';
       const res = HttpHandler.postHandler(url, data, this.syncCallback);
     }
   }
@@ -183,10 +183,10 @@ class PostEditor extends React.Component {
       };
       console.log(data);
       if(this.state.is_edit){
-        const url = `http://localhost:3000/api/articles/${this.state.article_id}`;
+        const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}`;
         const res = HttpHandler.PutHandler(url, data, this.callback);
       } else {
-        const url = 'http://localhost:3000/api/articles';
+        const url = 'http://111.230.71.48:8080/api/articles';
         const res = HttpHandler.postHandler(url, data, this.callback);
       }
     }

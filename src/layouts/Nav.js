@@ -33,7 +33,7 @@ class Nav extends Component {
   }
 
   logOut = () => {
-    const url = `http://localhost:3000/api/auth/logout?access_token=${this.state.access_token}`;
+    const url = `http://111.230.71.48:8080/api/auth/logout?access_token=${this.state.access_token}`;
     HttpHandler.DeleteHandler(url, this.handleLogut);
   }
 
