@@ -42,7 +42,7 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        const url = 'http://111.230.71.48:8080/api/auth/login';
+        const url = 'api/auth/login';
         HttpHandler.postHandler(url, values, this.loginCallbak);
       }
     });

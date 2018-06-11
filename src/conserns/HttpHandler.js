@@ -1,5 +1,6 @@
+const apiServer = 'http://localhost:3000'
 export const postHandler = (url, data, callback) => {
-  fetch(url, {
+  fetch(`${apiServer}/${url}`, {
     method: 'POST',
     mode: 'cors',
     body: JSON.stringify(data),
@@ -12,14 +13,14 @@ export const postHandler = (url, data, callback) => {
 }
 
 export const GetHandler = (url, callback) => {
-  fetch(url)
+  fetch(`${apiServer}/${url}`)
   .then(response => response.json())
   .catch(error => console.error('Error', error))
   .then(response => callback(response))
 }
 
 export const PutHandler = (url, data, callback) => {
-  fetch(url, {
+  fetch(`${apiServer}/${url}`, {
     method: 'PUT',
     mode: 'cors',
     body: JSON.stringify(data),
@@ -32,7 +33,7 @@ export const PutHandler = (url, data, callback) => {
 }
 
 export const DeleteHandler = (url, callback) => {
-  fetch(url, {
+  fetch(`${apiServer}/${url}`, {
     method: 'DELETE',
     mode: 'cors',
     headers: new Headers({

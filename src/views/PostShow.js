@@ -18,17 +18,19 @@ class PostShow extends Component {
       article_id: this.props.match.params.id,
       article: {},
       access_token: sessionStorage.getItem('access_token'),
+      can_manage: false,
     }
   }
 
   callback = (data) => {
     if(data['status'] === 1) {
-      this.setState({load_succeed: true, article: data['article']});
+      this.setState({load_succeed: true, can_manage: data['can_manage'], article: data['article']});
     }
   }
 
   componentWillMount(){
-    const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}`;
+    const url = `api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
+    console.log(url);
     HttpHandler.GetHandler(url, this.callback);
   }
 
@@ -46,7 +48,7 @@ class PostShow extends Component {
       okType: 'danger',
       cancelText: '取消',
       onOk: () => {
-        const url = `http://111.230.71.48:8080/api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
+        const url = `api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
         HttpHandler.DeleteHandler(url, this.deleteCallback);
       }
     });
@@ -58,7 +60,7 @@ class PostShow extends Component {
         <div className='title'>
           {this.state.article.title}
           {
-            this.state.access_token &&
+            this.state.can_manage &&
             <span>
               <Link to={`/psot_edit/${this.state.article_id}`} className='post-edit'>
                 <Icon type="edit" />
