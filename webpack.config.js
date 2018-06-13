@@ -2,6 +2,10 @@ const path = require('path');
 var webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
   entry: ['babel-polyfill','./src/app.js'],
@@ -21,17 +25,17 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-        }, {
-          loader: 'sass-loader',
-        }]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ],
   },
@@ -52,7 +56,12 @@ const config = {
       sourceMap: true,
       cache: true
     }),
-    new CompressionPlugin()
+    new CompressionPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "stylesheets/style_scc.css",
+    }),
+    new ExtractTextPlugin('stylesheets/style_sass.css'),
+    new BundleAnalyzerPlugin()
   ],
   devServer: {
     contentBase: path.join(__dirname, "build"),
