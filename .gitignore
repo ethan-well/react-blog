@@ -1,4 +1,3 @@
 node_modules
-build/main.js
-build/main.js.gz
+build
 package-lock.json

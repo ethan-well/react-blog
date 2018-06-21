@@ -1,4 +1,4 @@
-const apiServer = 'http://localhost:3000'
+const apiServer = 'http://localhost:3300'
 export const postHandler = (url, data, callback) => {
   fetch(`${apiServer}/${url}`, {
     method: 'POST',

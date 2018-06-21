@@ -1,17 +1,18 @@
 const path = require('path');
 var webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
   entry: ['babel-polyfill','./src/app.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'main.js'
+    filename: '[name].[hash:8].js',
+    publicPath: '/'
+    // chunkFilename: 'common.js'
   },
   mode: 'production',
   module: {
@@ -24,22 +25,22 @@ const config = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader"
-        ]
+          'css-loader',
+          'sass-loader',
+        ],
       },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
-      }
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(['dist', 'build/*'], {
+      watch: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new UglifyJsPlugin({
       uglifyOptions: {
@@ -58,10 +59,9 @@ const config = {
     }),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
-      filename: "stylesheets/style_scc.css",
+      filename: "[name].[hash:8].css",
+      chunkFilename: "[id].[hash:8].css"
     }),
-    new ExtractTextPlugin('stylesheets/style_sass.css'),
-    new BundleAnalyzerPlugin()
   ],
   devServer: {
     contentBase: path.join(__dirname, "build"),
