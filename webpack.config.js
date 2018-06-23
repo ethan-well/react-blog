@@ -7,7 +7,7 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
-  entry: ['babel-polyfill','./src/app.js'],
+  entry: ['babel-polyfill', './src/app.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[hash:8].js',
@@ -18,7 +18,7 @@ const config = {
     rules: [
       {
         test: /\.js$/,
-        include: /(src)/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
         },
@@ -62,6 +62,32 @@ const config = {
       chunkFilename: "[id].[hash:8].css",
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'initial',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 2,
+      maxInitialRequests: 2,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /\/node_modules\//,
+          priority: -10,
+        },
+        'react-vendor': {
+          test: (module, chunks) => /react/.test(module.context),
+          priority: 1,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        }
+      }
+    }
+  },
   devServer: {
     contentBase: path.join(__dirname, "build"),
     compress: true,
