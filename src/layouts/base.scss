@@ -70,4 +70,18 @@ html, body {
       right: 2px;
     }
   }
+  pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+  }
+
+  code {
+    background-color: #f0f0f0;
+    padding: 2px 3px;
+    border-radius: 2px;
+  }
 }
