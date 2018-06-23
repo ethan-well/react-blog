@@ -11,8 +11,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[hash:8].js',
-    publicPath: '/'
-    // chunkFilename: 'common.js'
+    publicPath: '/',
   },
   mode: 'production',
   module: {
@@ -22,7 +21,7 @@ const config = {
         include: /(src)/,
         use: {
           loader: 'babel-loader',
-        }
+        },
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -39,7 +38,7 @@ const config = {
       watch: true,
     }),
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new UglifyJsPlugin({
@@ -51,16 +50,16 @@ const config = {
           warnings: false,
           drop_console: true,
           drop_debugger: true,
-          unused: false
+          unused: false,
          }
       },
       sourceMap: true,
-      cache: true
+      cache: true,
     }),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[hash:8].css",
-      chunkFilename: "[id].[hash:8].css"
+      chunkFilename: "[id].[hash:8].css",
     }),
   ],
   devServer: {
@@ -68,8 +67,8 @@ const config = {
     compress: true,
     port: 9000,
     open: true,
-    inline: true
-  }
+    inline: true,
+  },
 };
 
 module.exports = config;
