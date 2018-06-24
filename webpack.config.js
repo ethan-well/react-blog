@@ -34,7 +34,7 @@ const config = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist', 'build/*'], {
+    new CleanWebpackPlugin(['build/*'], {
       watch: true,
     }),
     new HtmlWebpackPlugin({
