@@ -155,7 +155,7 @@ class PostEditor extends React.Component {
   }
 
   goBackLink = () =>{
-    return(this.state.is_edit ? <Link to={`/post_show/${this.state.article_id}`} > 返回 </Link> : '')
+    return(this.state.is_edit ? <Link to={`/post_show/${this.state.category}/${this.state.article_id}`} > 返回 </Link> : '')
   }
 
   stopPropagation = (e) => {
@@ -181,7 +181,6 @@ class PostEditor extends React.Component {
         tags: this.state.tag_list,
         access_token: this.state.access_token,
       };
-      console.log(data);
       if(this.state.is_edit){
         const url = `api/articles/${this.state.article_id}`;
         const res = HttpHandler.PutHandler(url, data, this.callback);
@@ -195,7 +194,7 @@ class PostEditor extends React.Component {
 
   callback = (data) => {
     if(data['status'] === 1) {
-      history.push(`/post_show/${data['id']}`);
+      history.push(`/post_show/${this.state.category}/${data['id']}`);
     } else {
       this.setState({
         alert_it: true,

@@ -16,7 +16,7 @@ class PostShow extends Component {
     this.state = {
       load_succeed: false,
       article_id: this.props.match.params.id,
-      article: {},
+      article: {category_id: this.props.match.params.category_id},
       access_token: sessionStorage.getItem('access_token'),
       can_manage: false,
     }
@@ -30,7 +30,6 @@ class PostShow extends Component {
 
   componentWillMount(){
     const url = `api/articles/${this.state.article_id}?access_token=${this.state.access_token}`;
-    console.log(url);
     HttpHandler.GetHandler(url, this.callback);
   }
 

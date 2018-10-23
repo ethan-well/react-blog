@@ -42,7 +42,7 @@ class ArticleList extends React.Component {
             actions={[<IconText type="star-o" text={item.collection_count} />, <IconText type="like-o" text={item.love_count} />, <IconText type="message" text={item.comment_count} />]}
             extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
           >
-            <a href={`/post_show/${item.id}`}>
+            <a href={`/post_show/${item.category_id}/${item.id}`}>
               <List.Item.Meta
                 title={item.title}
                 description={item.content.substr(1,150)}
