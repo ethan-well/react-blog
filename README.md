@@ -1,1 +1,2 @@
-My redux blog
+My React Blog
+
