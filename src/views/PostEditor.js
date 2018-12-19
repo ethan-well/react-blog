@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import {Row, Col, Input, Icon, Card, Radio, Button} from 'antd';
-const { TextArea } = Input;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import createHistory from "history/createBrowserHistory"
 const history = createHistory({basename: "/", forceRefresh: true})
 import Editor from '../layouts/Editor';
 import * as HttpHandler from '../conserns/HttpHandler';
 import UserAvatar from '../layouts/UserAvatar';
-import MyTag from './MyTag';
 import PropTypes from 'prop-types';
 import AlertIt from './AlertIt';
 
@@ -239,8 +237,8 @@ class PostEditor extends React.Component {
         className="post-tags-selector"
         actions={[<Button type="primary" onClick={this.publishHandle} ghost>发布</Button>]}
       >
-        <p>选择分类</p>
-        <div style={{ marginTop: 16, marginBottom: 10 }}>
+        <p className="custom-margin">选择分类</p>
+        <div style={{ marginTop: 6, marginBottom: 16 }}>
           <RadioGroup defaultValue={this.state.category} onChange={this.categoryHandleChange}>
             {
               this.state.categories.map((item) => { return <RadioButton key={item.id} value={item.id}>{item.name}</RadioButton> } )
