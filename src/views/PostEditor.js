@@ -247,10 +247,6 @@ class PostEditor extends React.Component {
             }
           </RadioGroup>
         </div>
-        <p>选择标签</p>
-        <MyTag ttt='xxx'>Tag1</MyTag>
-        <MyTag ttt='ttt'>Tag2</MyTag>
-        <MyTag ttt='ttt'>Tag3</MyTag>
         <div>
           <RadioGroup onChange={this.changePrivateState} value={this.state.post_private}>
             <Radio value={true}>私有</Radio>
