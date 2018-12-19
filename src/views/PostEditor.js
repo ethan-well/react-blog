@@ -21,6 +21,7 @@ class PostEditor extends React.Component {
       post_title: '',
       post_content: '',
       post_prev: '',
+      post_private: false,
       validate: this.props.match.params.id ? true : false,
       is_edit: this.props.match.params.id ? true : false,
       article_id: this.props.match.params.id,
@@ -34,7 +35,7 @@ class PostEditor extends React.Component {
       length_saved: 0,
       sync_status: 'pending',
       access_token: sessionStorage.getItem('access_token'),
-    }
+    };
   }
 
   subcallback = (push, name) => {
@@ -67,7 +68,13 @@ class PostEditor extends React.Component {
 
   initArticle = (data) => {
     if(data['status'] === 1) {
-      this.setState({ post_title: data['article'].title, post_content: data['article'].content, length_saved: data['length'] })
+      const article_attr = {
+        post_title: data['article'].title,
+        post_content: data['article'].content,
+        length_saved: data['length'],
+        post_private: data['private']
+      };
+      this.setState(article_attr);
     }
   }
 
@@ -111,7 +118,14 @@ class PostEditor extends React.Component {
 
   syncCallback = (data) => {
     if(data['status'] == 1) {
-      this.setState({ sync_status: 'pending', is_edit: true, article_id: data['id'], length_saved: data['length']});
+      const props = {
+        sync_status: 'pending',
+        is_edit: true,
+        article_id: data['id'],
+        length_saved: data['length'],
+        private: data['private']
+      };
+      this.setState(props);
     } else {
       this.setState({ sync_status: 'failed'});
     }
@@ -125,6 +139,7 @@ class PostEditor extends React.Component {
       content: content,
       category: this.state.category,
       tags: this.state.tag_list,
+      private: this.state.post_private,
       access_token: this.state.access_token,
     };
     if(this.state.is_edit){
@@ -180,6 +195,7 @@ class PostEditor extends React.Component {
         category: this.state.category,
         tags: this.state.tag_list,
         access_token: this.state.access_token,
+        private: this.state.post_private
       };
       if(this.state.is_edit){
         const url = `api/articles/${this.state.article_id}`;
@@ -208,6 +224,10 @@ class PostEditor extends React.Component {
     this.setState({alert_it: false});
   }
 
+  changePrivateState = (e) => {
+    this.setState({post_private: e.target.value});
+  }
+
   postTagsSelector = () => {
     return(
       <Card title="发布文章" onClick={this.stopPropagation}
@@ -227,6 +247,12 @@ class PostEditor extends React.Component {
         <MyTag ttt='xxx'>Tag1</MyTag>
         <MyTag ttt='ttt'>Tag2</MyTag>
         <MyTag ttt='ttt'>Tag3</MyTag>
+        <div>
+          <RadioGroup onChange={this.changePrivateState} value={this.state.post_private}>
+            <Radio value={true}>私有</Radio>
+            <Radio value={false}>公开</Radio>
+          </RadioGroup>
+        </div>
       </Card>
     )
   }
