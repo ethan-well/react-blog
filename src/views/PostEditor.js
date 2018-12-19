@@ -144,10 +144,10 @@ class PostEditor extends React.Component {
     };
     if(this.state.is_edit){
       const url = `api/articles/${this.state.article_id}`;
-      const res = HttpHandler.PutHandler(url, data, this.syncCallback);
+      HttpHandler.PutHandler(url, data, this.syncCallback);
     } else {
       const url = 'api/articles';
-      const res = HttpHandler.postHandler(url, data, this.syncCallback);
+      HttpHandler.postHandler(url, data, this.syncCallback);
     }
   }
 
@@ -170,7 +170,11 @@ class PostEditor extends React.Component {
   }
 
   goBackLink = () =>{
-    return(this.state.is_edit ? <Link to={`/post_show/${this.state.category}/${this.state.article_id}`} > 返回 </Link> : '')
+    return(
+      this.state.is_edit
+      ? <Link to={`/post_show/${this.state.category}/${this.state.article_id}`} > 返回 </Link>
+      : ''
+    );
   }
 
   stopPropagation = (e) => {
@@ -199,10 +203,10 @@ class PostEditor extends React.Component {
       };
       if(this.state.is_edit){
         const url = `api/articles/${this.state.article_id}`;
-        const res = HttpHandler.PutHandler(url, data, this.callback);
+        HttpHandler.PutHandler(url, data, this.callback);
       } else {
         const url = 'api/articles';
-        const res = HttpHandler.postHandler(url, data, this.callback);
+        HttpHandler.postHandler(url, data, this.callback);
       }
     }
     this.setState({show_tags_selector: false});
@@ -254,7 +258,7 @@ class PostEditor extends React.Component {
           </RadioGroup>
         </div>
       </Card>
-    )
+    );
   }
 
   tags_selector_handler = () => {
@@ -299,7 +303,7 @@ class PostEditor extends React.Component {
             <AlertIt message={this.state.alert_message} handleClose={this.handleClose} type={this.state.alert_type}/>
         }
       </Editor>
-    )
+    );
   }
 }
 
