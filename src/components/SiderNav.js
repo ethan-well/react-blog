@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import UserAvatar from './UserAvatar';
+import CategoryList from './CategoryList';
 
 class SiderNav extends Component {
   constructor(props) {
@@ -8,7 +10,8 @@ class SiderNav extends Component {
   render() {
     return (
       <div>
-        Sider Nav
+        <UserAvatar/>
+        <CategoryList />
       </div>
     );
   }
