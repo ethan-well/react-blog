@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {GetHandler} from '../conserns/HttpHandler';
+import Style from './categories_list.scss';
 
 class CategoryList extends Component {
   constructor(props) {
@@ -21,8 +22,8 @@ class CategoryList extends Component {
 
   render() {
     return (
-      <div className="category-list">
-        <ul>
+      <div className="categories-area">
+        <ul className="categories-list">
           { this.state.categories.length > 0
             ? this.state.categories.map((item) => {
                 return <li key={`${item.id}`}>{item.name}</li>

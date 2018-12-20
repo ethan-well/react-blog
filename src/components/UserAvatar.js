@@ -8,11 +8,13 @@ class UserAvatar extends Component {
 
   render() {
     return(
-      <Avatar
-        size={64}
-        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        style={{ backgroundColor: '#87d068' }}
-      />
+      <div className="user-avatar">
+        <Avatar
+          size={64}
+          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          style={{ backgroundColor: '#87d068' }}
+        />
+      </div>
     )
   }
 }
