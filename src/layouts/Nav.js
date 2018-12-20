@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Icon, Menu, List } from 'antd';
-import UserAvatar from './UserAvatar';
 import createHistory from 'history/createBrowserHistory';
 const history = createHistory({basename: "/", forceRefresh: true});
 import * as HttpHandler from '../conserns/HttpHandler';

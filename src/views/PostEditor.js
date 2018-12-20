@@ -8,7 +8,6 @@ import createHistory from "history/createBrowserHistory"
 const history = createHistory({basename: "/", forceRefresh: true})
 import Editor from '../layouts/Editor';
 import * as HttpHandler from '../conserns/HttpHandler';
-import UserAvatar from '../layouts/UserAvatar';
 import PropTypes from 'prop-types';
 import AlertIt from './AlertIt';
 
@@ -278,9 +277,6 @@ class PostEditor extends React.Component {
                 {this.postTagsSelector()}
               </a>
               {this.goBackLink()}
-              <Link to='/' title='返回主页'>
-                <UserAvatar/>
-              </Link>
             </Col>
           </Row>
           <Row className='post-content'>

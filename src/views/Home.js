@@ -3,6 +3,7 @@ import { Row, Col, Menu, Icon } from 'antd';
 import ArticleList from './ArticleList';
 import ArticleNav from './ArticleNav';
 import Index from '../layouts/Index';
+import SiderNav from '../components/SiderNav';
 
 class Home extends Component {
   render() {
@@ -10,6 +11,7 @@ class Home extends Component {
       <Index>
         <Row>
           <Col span={4}>
+            <SiderNav />
           </Col>
           <Col span={18}>
             <Row>
