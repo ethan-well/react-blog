@@ -4,7 +4,6 @@ import { Row, Col, Icon, Modal } from 'antd';
 const confirm = Modal.confirm;
 import Index from '../layouts/Index';
 import { Link } from 'react-router-dom';
-import ArticleNav from '../views/ArticleNav';
 import * as HttpHandler from '../conserns/HttpHandler';
 import Style from '../layouts/post_show_area.scss';
 import createHistory from "history/createBrowserHistory";
@@ -84,7 +83,6 @@ class PostShow extends Component {
             {article_show}
           </Col>
           <Col span={6}>
-            <ArticleNav articleId={this.state.article_id} categoryId={this.state.article.category_id} />
           </Col>
           <Col span={2}></Col>
         </Row>

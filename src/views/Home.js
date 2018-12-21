@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Menu, Icon } from 'antd';
 import ArticleList from './ArticleList';
-import ArticleNav from './ArticleNav';
 import Index from '../layouts/Index';
 import SiderNav from '../components/SiderNav';
 
@@ -13,9 +12,11 @@ class Home extends Component {
           <Col span={4}>
             <SiderNav />
           </Col>
-          <Col span={18}>
+          <Col span={4}>
+          </Col>
+          <Col span={16}>
             <Row>
-              <Col span={16}>
+              <Col span={24}>
                 <div className="article-are">
                   <Menu
                     mode="horizontal"
@@ -28,14 +29,8 @@ class Home extends Component {
                   <ArticleList />
                 </div>
               </Col>
-              <Col span={8}>
-                <div className='article-nav'>
-                  <ArticleNav />
-                </div>
-              </Col>
             </Row>
           </Col>
-          <Col span={2}></Col>
         </Row>
       </Index>
     );
