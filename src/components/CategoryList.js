@@ -7,6 +7,7 @@ class CategoryList extends Component {
     super(props);
     this.state = {
       categories: new Set(),
+      active_id: 1
     }
   }
 
@@ -16,8 +17,11 @@ class CategoryList extends Component {
   }
 
   callback = (data) => {
-    console.log(data);
     this.setState({categories: data['categories']});
+  }
+
+  changeActive = (id, e) => {
+    this.setState({active_id: id});
   }
 
   render() {
@@ -26,7 +30,12 @@ class CategoryList extends Component {
         <ul className="categories-list">
           { this.state.categories.length > 0
             ? this.state.categories.map((item) => {
-                return <li key={`${item.id}`}>{item.name}</li>
+                return <li key={item.id}
+                         className={ this.state.active_id == item.id ? 'active' : '' }
+                         onClick={(e) =>  this.changeActive(item.id, e)}
+                       >
+                         {item.name}
+                       </li>
               })
             : '加载中...'
           }

@@ -6,6 +6,15 @@
     li {
       list-style-type: none;
       padding: 5px 0px;
+      cursor: pointer;
+      transition: color 2s;
+      line-height: 24px;
+    }
+    li:hover {
+      color: #1890ff;
+    }
+    li.active {
+      color: #1890ff;
     }
   }
 }
