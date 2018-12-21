@@ -1,0 +1,24 @@
+.article-area {
+  .article-list {
+    a.article-title {
+      font-size: 20px;
+      line-height: 30px;
+      color: #0d1a26;
+      transition: color 1s;
+    }
+    a:hover {
+      color: #1890ff;
+    }
+    .article-created-at {
+      display: inline-block;
+      margin-left: 8px;
+    }
+    li {
+      list-style-type: none;
+      margin-bottom: 24px;
+    }
+    .article-summary {
+      padding-top: 4px;
+    }
+  }
+}

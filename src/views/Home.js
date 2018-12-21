@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Menu, Icon } from 'antd';
-import ArticleList from './ArticleList';
+import ArticleList from '../components/ArticleList';
 import Index from '../layouts/Index';
 import SiderNav from '../components/SiderNav';
 
@@ -10,26 +10,20 @@ class Home extends Component {
       <Index>
         <Row>
           <Col span={4}>
-            <SiderNav />
           </Col>
           <Col span={4}>
+            <SiderNav />
           </Col>
-          <Col span={16}>
+          <Col span={12}>
             <Row>
               <Col span={24}>
-                <div className="article-are">
-                  <Menu
-                    mode="horizontal"
-                    selectedKeys={['posts']}
-                  >
-                    <Menu.Item key='posts'>
-                      <Icon type="appstore"/>最新文章列表
-                    </Menu.Item>
-                  </Menu>
+                <div className="article-area">
                   <ArticleList />
                 </div>
               </Col>
             </Row>
+          </Col>
+          <Col span={4}>
           </Col>
         </Row>
       </Index>
