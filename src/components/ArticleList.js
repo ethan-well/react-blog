@@ -22,7 +22,7 @@ class ArticleList extends React.Component {
   }
 
   generateSummary = (content) => {
-    return content.substr(0, 150);
+    return content ? content.substr(0, 10) : '暂无描述'
   }
 
   formatData = (data_str) => {
@@ -41,7 +41,7 @@ class ArticleList extends React.Component {
                         </a>
                         <span className="article-created-at">{ this.formatData(item.created_at) }</span>
                         <div className="article-summary">
-                          {this.generateSummary(item.content)}
+                          {this.generateSummary(item.description)}
                         </div>
                       </li>
             })
