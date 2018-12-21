@@ -8,6 +8,7 @@
       padding: 5px 0px;
       cursor: pointer;
       transition: color 2s;
+      transition: background-color 3s;
       line-height: 24px;
     }
     li:hover {
@@ -15,6 +16,7 @@
     }
     li.active {
       color: #1890ff;
+      background-color: #e6f7ff;
     }
   }
 }
