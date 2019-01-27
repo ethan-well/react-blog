@@ -17,7 +17,6 @@ class ArticleList extends React.Component {
   }
 
   callback = (data) => {
-    console.log(data);
     this.setState({articleList: data});
   }
 
