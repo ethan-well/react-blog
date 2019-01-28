@@ -94,6 +94,7 @@ const config = {
     port: 9000,
     open: true,
     inline: true,
+    historyApiFallback: true,
   },
 };
 

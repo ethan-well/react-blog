@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { request } from 'https';
 
 export const requestPostsByCategory  = (category_id) =>  (dispathch, action) => {
   dispathch(requestPost);
-  return fetch(`/${category_id}`)
+  return fetch('http://localhost:3300/api/categories/1/articles')
     .then(response => response.json())
     .then(json => {
       dispathch(receivePost(json));
@@ -17,7 +16,7 @@ export const requestPost = {
 
 export const receivePost = (json) => ({
   type: 'RECEIVE_POST',
-  post: json.post
+  post: json.articles
 })
 
 export const fetchError = (error) => ({
