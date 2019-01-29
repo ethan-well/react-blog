@@ -15,6 +15,10 @@ const category = (state = {}, action) => {
         categories: action.categories,
         active_id: action.active_id
       })
+    case 'TOGGLE_CATEGORY':
+      return Object.assign({}, state, {
+        active_id: action.active_id
+      })
     default:
       return state
   }

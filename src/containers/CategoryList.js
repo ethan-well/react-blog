@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchCategories } from '../actions/getCategories';
+import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategories';
 import CategoryList from '../components/CategoryList';
 import React from 'react';
 
@@ -9,13 +9,12 @@ class CategoryListContainer extends React.Component {
   }
 
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(fetchCategories())
+    this.props.fetchCategories()
   }
 
   render() {
     return (
-      <CategoryList state={this.props.categories} />
+      <CategoryList state={this.props.categories} toggleArticle={this.props.toggleArticle} />
     )
   }
 }
@@ -24,6 +23,12 @@ const mapStateToProps = (state, ownProps) => ({
   categories: state.category
 })
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchCategories: () =>  dispatch(fetchCategories()),
+  toggleArticle: id => dispatch(fetchArticlesByCategoryId(id)),
+})
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CategoryListContainer)

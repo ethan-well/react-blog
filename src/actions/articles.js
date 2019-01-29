@@ -19,7 +19,7 @@ export const receivePost = (json) => ({
   articles: json.articles
 })
 
-export const fetchError = (error) => ({
+export const fetchError = (error) => {
   type: 'FETCH_ERROR',
   message: error
-})
+}
