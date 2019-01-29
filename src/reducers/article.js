@@ -1,3 +1,5 @@
+import React from 'react';
+
 const article = (state = {}, action) => {
   switch (action.type) {
     case 'START_REQUEST':
@@ -14,7 +16,7 @@ const article = (state = {}, action) => {
         articles: action.articles
       })
     default:
-      state
+      return state
   }
 }
 

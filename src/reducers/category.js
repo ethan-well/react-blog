@@ -6,15 +6,17 @@ const category = (state = {}, action) => {
       })
     case 'FETCH_ERROR':
       return Object.assign({}, state, {
-        fetchError: true
+        fetchError: true,
+        message: action.message
       })
-    case 'RECEIVE_POSTS':
+    case 'RECEIVE_POST':
       return Object.assign({}, state, {
         isFetching: false,
-        categories: action.categories
+        categories: action.categories,
+        active_id: action.active_id
       })
     default:
-      state
+      return state
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserAvatar from './UserAvatar';
-import CategoryList from './CategoryList';
+import CategoryList from '../containers/CategoryList';
 import Style from './user_avatar.scss';
 
 class SiderNav extends Component {

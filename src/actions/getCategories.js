@@ -16,7 +16,8 @@ export const requestCategories = {
 
 export const receiveCategories = (json) => ({
   type: 'RECEIVE_POST',
-  categories: json.categories
+  categories: json.categories,
+  active_id: json.categories[0].id
 })
 
 export const fetchError = (error) => ({

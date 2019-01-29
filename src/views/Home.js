@@ -18,7 +18,7 @@ class Home extends Component {
             <Row>
               <Col span={24}>
                 <div className="article-area">
-                  <ArticleList />
+                  {/* <ArticleList /> */}
                 </div>
               </Col>
             </Row>

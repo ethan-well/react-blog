@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RouteComponent from './routes/index';
+import HomeContainer from './containers/Home';
+// import RouteComponent from './routes/index';
 
 ReactDOM.render(
-  <RouteComponent />,
+  <HomeContainer />,
   document.getElementById('root')
 );

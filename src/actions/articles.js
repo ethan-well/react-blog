@@ -16,7 +16,7 @@ export const requestPost = {
 
 export const receivePost = (json) => ({
   type: 'RECEIVE_POST',
-  post: json.articles
+  articles: json.articles
 })
 
 export const fetchError = (error) => ({
