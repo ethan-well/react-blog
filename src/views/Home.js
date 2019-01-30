@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Menu, Icon } from 'antd';
-import ArticleList from '../components/ArticleList';
+import ArticleListContainer from '../containers/ArticleListContainer';
 import Index from '../layouts/Index';
 import SiderNav from '../components/SiderNav';
 
@@ -18,7 +18,7 @@ class Home extends Component {
             <Row>
               <Col span={24}>
                 <div className="article-area">
-                  {/* <ArticleList /> */}
+                  <ArticleListContainer />
                 </div>
               </Col>
             </Row>

@@ -1,54 +1,33 @@
 import React from 'react';
 import { List, Avatar, Icon } from 'antd';
-import * as HttpHandler from '../conserns/HttpHandler';
 import Style from './article_list.scss';
 
-class ArticleList extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      articleList: new Set(),
-    }
-  }
-
-  componentWillMount(){
-    const url = 'api/articles';
-    HttpHandler.GetHandler(url, this.callback);
-  }
-
-  callback = (data) => {
-    this.setState({articleList: data});
-  }
-
-  generateSummary = (content) => {
-    return content ? content.substr(0, 10) : '暂无描述'
-  }
-
-  formatData = (data_str) => {
-    return data_str.substr(0,10);
-  }
-
-  render(){
-    return(
-      <ul className="article-list">
-        {
-          this.state.articleList.length > 0
-          ? this.state.articleList.map((item) => {
-              return <li key={item.id}>
-                        <a className="article-title">
-                          {item.title}
-                        </a>
-                        <span className="article-created-at">{ this.formatData(item.created_at) }</span>
-                        <div className="article-summary">
-                          {this.generateSummary(item.description)}
-                        </div>
-                      </li>
-            })
-          : '加载中'
-        }
-      </ul>
-    )
-  }
+const generateSummary = (content) => {
+  return content ? content.substr(0, 10) : '暂无描述'
 }
+
+const formatData = (data_str) => {
+  return data_str.substr(0,10);
+}
+
+const ArticleList = ({ articles }) => (
+  <ul className="article-list">
+    {
+      articles && articles.length > 0
+      ? articles.map((item) => {
+          return <li key={item.id}>
+                    <a className="article-title">
+                      {item.title}
+                    </a>
+                    <span className="article-created-at">{ formatData(item.created_at) }</span>
+                    <div className="article-summary">
+                      {generateSummary(item.description)}
+                    </div>
+                  </li>
+        })
+      : '加载中...'
+    }
+  </ul>
+)
 
 export default ArticleList;

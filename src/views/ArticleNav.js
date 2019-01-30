@@ -49,7 +49,6 @@ class ArticleNav extends React.Component {
 
   render(){
     const tabList = this.state.categories.map((item) => {return {key: item.id, tab: item.name}});
-    // const contentLists = this.state.articles.map((item) => {return <Link className='article-nav-link-list' key={`${item. id}`} to={`/post_show/${item.id}`} >{item.title}</Link> });
     const contentLists = this.state.articles.length !== 0 ?
      this.state.articles.map((item) => {return <a className={item.id == this.props.articleId ? 'article-nav-link-list active' : 'article-nav-link-list' } key={`${item.id}`} href={`/post_show/${item.category_id}/${item.id}`} >{item.title}</a> })
      :

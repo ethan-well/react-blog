@@ -2,15 +2,15 @@ import React from 'react';
 
 const article = (state = {}, action) => {
   switch (action.type) {
-    case 'START_REQUEST':
+    case 'START_REQUEST_CATEGORY':
       return Object.assign({}, state, {
         isFetching: true
       })
-    case 'FETCH_ERROR':
+    case 'FETCH_CATEGORY_ERROR':
       return Object.assign({}, state, {
         fetchError: true
       })
-    case 'RECEIVE_POSTS':
+    case 'RECEIVE_CATEGORY':
       return Object.assign({}, state, {
         isFetching: false,
         articles: action.articles
