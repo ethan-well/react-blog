@@ -23,3 +23,8 @@ export const fetchError = (error) => ({
   type: 'FETCH_CATEGORY_ERROR',
   message: error
 })
+
+export const toggleArticleTitle = (article_id) => ({
+  type: 'GET_ARTICLE_INFO',
+  article_id: article_id
+})

@@ -1,5 +1,6 @@
 import React from 'react';
 import ArticleList from '../components/ArticleList';
+import { toggleArticleTitle } from '../actions/getArticles';
 import { connect } from 'react-redux';
 
 class ArticleListContainer extends React.Component {
@@ -9,7 +10,7 @@ class ArticleListContainer extends React.Component {
 
   render(){
     return(
-      <ArticleList articles={this.props.articles} />
+      <ArticleList articles={this.props.articles} toggleArticleTitle={this.props.toggleArticleTitle} />
     )
   }
 }
@@ -18,6 +19,11 @@ const mapStateToProps = (state, ownProps) => ({
   articles: state.article.articles
 })
 
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  toggleArticleTitle: id => dispatch(toggleArticleTitle(id))
+})
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ArticleListContainer)

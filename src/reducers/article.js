@@ -15,6 +15,11 @@ const article = (state = {}, action) => {
         isFetching: false,
         articles: action.articles
       })
+    case 'GET_ARTICLE_INFO':
+      return Object.assign({}, state, {
+        article_id: action.article_id,
+        article: state.article.articles.filter( function(article){ return article.id == action.article_id })
+      })
     default:
       return state
   }

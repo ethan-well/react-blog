@@ -10,13 +10,16 @@ const formatData = (data_str) => {
   return data_str.substr(0,10);
 }
 
-const ArticleList = ({ articles }) => (
+const ArticleList = ({ articles, toggleArticleTitle }) => (
   <ul className="article-list">
     {
       articles && articles.length > 0
       ? articles.map((item) => {
           return <li key={item.id}>
-                    <a className="article-title">
+                    <a
+                      className="article-title"
+                      onClick={() => toggleArticleTitle(item.id)}
+                    >
                       {item.title}
                     </a>
                     <span className="article-created-at">{ formatData(item.created_at) }</span>
