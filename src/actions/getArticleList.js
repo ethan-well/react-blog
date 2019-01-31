@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-export const fetchArticles = (category_id) =>  (dispathch, action) => {
-  dispathch(requestArticles);
+export const fetchArticles = (category_id) =>  (dispatch, action) => {
+  dispatch(requestArticles);
   return fetch(`http://localhost:3300/api/categories/${category_id}/articles`)
     .then(response => response.json())
     .then(json => {
-      dispathch(receivePost(json));
+      dispatch(receivePost(json));
     })
-    .catch(error => dispathch(fetchError(error)))
+    .catch(error => dispatch(fetchError(error)))
 }
 
 export const requestArticles = {
