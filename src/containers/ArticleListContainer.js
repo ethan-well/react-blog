@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleList from '../components/ArticleList';
-import { toggleArticleTitle } from '../actions/getArticles';
+import { toggleArticleTitle } from '../actions/getArticleList';
 import { connect } from 'react-redux';
 
 class ArticleListContainer extends React.Component {

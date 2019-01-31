@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategories';
-import { fetchArticles } from '../actions/getArticles';
+import { fetchArticles } from '../actions/getArticleList';
 import CategoryList from '../components/CategoryList';
 import React from 'react';
 
