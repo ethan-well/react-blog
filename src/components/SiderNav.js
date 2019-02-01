@@ -10,9 +10,11 @@ class SiderNav extends Component {
 
   render() {
     return (
-      <div className="side-nav">
-        <UserAvatar/>
-        <CategoryList />
+      <div className="side-bar">
+        <div className="side-nav">
+          <UserAvatar/>
+          <CategoryList />
+        </div>
       </div>
     );
   }

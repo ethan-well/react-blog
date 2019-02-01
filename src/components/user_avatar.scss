@@ -1,4 +1,10 @@
+.side-bar {
+  position: relative;
+}
+
 .side-nav {
+  position: fixed;
+  width: 238px;
   .user-avatar {
     padding-left: 12px;
   }
