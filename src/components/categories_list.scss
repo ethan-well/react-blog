@@ -5,18 +5,38 @@
     padding: 0px;
     li {
       list-style-type: none;
-      padding: 5px 0px;
+      width: 120%;
+      position: relative;
+    }
+    a {
       cursor: pointer;
+      display: inline-block;
+      padding: 5px 0px;
+      width: 80%;
+      line-height: 24px;
       transition: color 1s;
       transition: background-color 2s;
-      line-height: 24px;
     }
-    li:hover {
+    a:hover {
       color: #1890ff;
     }
-    li.active {
+    a.active {
       color: #1890ff;
       background-color: #e6f7ff;
     }
+    .article.add {
+      cursor: pointer;
+      color: #595959;
+      position: absolute;
+      top: 10px;
+      opacity: 0;
+      transition: opacity 2s;
+      transition: color 2s;
+    }
+    li:hover .article.add {
+      opacity: 1;
+      color: #1890ff;
+    }
   }
+
 }
