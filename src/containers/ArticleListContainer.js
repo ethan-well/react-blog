@@ -8,7 +8,7 @@ class ArticleListContainer extends React.Component {
     super(props)
   }
 
-  render(){
+  render() {
     return(
       <ArticleList articles={this.props.articles} toggleArticleTitle={this.props.toggleArticleTitle} />
     )

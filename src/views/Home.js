@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Col, Menu, Icon } from 'antd';
 import ArticleListContainer from '../containers/ArticleListContainer';
+import ArticleContainer from '../containers/ArticleContainer';
 import Index from '../layouts/Index';
 import SiderNav from '../components/SiderNav';
+
 
 class Home extends Component {
   render() {
@@ -19,6 +21,7 @@ class Home extends Component {
               <Col span={24}>
                 <div className="article-area">
                   <ArticleListContainer />
+                  <ArticleContainer />
                 </div>
               </Col>
             </Row>

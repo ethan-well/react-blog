@@ -25,6 +25,6 @@ export const fetchError = (error) => ({
 })
 
 export const toggleArticleTitle = (article_id) => ({
-  type: 'GET_ARTICLE_INFO',
+  type: 'TOGGLE_ARTICLE_TITLE',
   article_id: article_id
 })
