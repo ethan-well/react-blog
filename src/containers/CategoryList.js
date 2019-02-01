@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategories';
+import { switchMainContent } from '../actions/switchMainContent';
 import { fetchArticles } from '../actions/getArticleList';
 import CategoryList from '../components/CategoryList';
 import React from 'react';
@@ -11,6 +12,7 @@ class CategoryListContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchCategories()
+    this.props.switchMainContent('article_list')
   }
 
   componentDidUpdate() {
@@ -32,8 +34,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCategories: () =>  dispatch(fetchCategories()),
-  toggleArticle: id => dispatch(fetchArticlesByCategoryId(id)),
-  fetchArticles: id => dispatch(fetchArticles(id))
+  toggleArticle: id => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContent('article_list'))},
+  fetchArticles: id => dispatch(fetchArticles(id)),
+  switchMainContent: main => dispatch(switchMainContent(main))
 })
 
 export default connect(

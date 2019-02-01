@@ -1,6 +1,7 @@
 import React from 'react';
 import ArticleList from '../components/ArticleList';
 import { fetchArticle } from '../actions/getArticle';
+import { switchMainContent } from '../actions/switchMainContent';
 import { connect } from 'react-redux';
 
 class ArticleListContainer extends React.Component {
@@ -20,7 +21,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  toggleArticleTitle: id => dispatch(fetchArticle(id))
+  toggleArticleTitle: id => { dispatch(fetchArticle(id)); dispatch(switchMainContent('article_content'))}
 })
 
 export default connect(

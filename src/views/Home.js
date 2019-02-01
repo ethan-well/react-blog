@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Menu, Icon } from 'antd';
-import ArticleListContainer from '../containers/ArticleListContainer';
-import ArticleContainer from '../containers/ArticleContainer';
 import Index from '../layouts/Index';
 import SiderNav from '../components/SiderNav';
+import MainContentContainer from '../containers/mainContentContainer';
 
 
 class Home extends Component {
@@ -20,8 +19,7 @@ class Home extends Component {
             <Row>
               <Col span={24}>
                 <div className="article-area">
-                  <ArticleListContainer />
-                  <ArticleContainer />
+                  <MainContentContainer />
                 </div>
               </Col>
             </Row>
