@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleList from '../components/ArticleList';
-import { toggleArticleTitle } from '../actions/getArticleList';
+import { fetchArticle } from '../actions/getArticle';
 import { connect } from 'react-redux';
 
 class ArticleListContainer extends React.Component {
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  toggleArticleTitle: id => dispatch(toggleArticleTitle(id))
+  toggleArticleTitle: id => dispatch(fetchArticle(id))
 })
 
 export default connect(

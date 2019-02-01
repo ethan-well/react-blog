@@ -8,12 +8,6 @@ class ArticleContainer extends React.Component {
     super(props)
   }
 
-  componentWillUpdate (nextProps, nextState) {
-    if (nextProps.article_id && (nextProps.article_id != this.props.article_id)) {
-      this.props.fetchArticle(nextProps.article_id)
-    }
-  }
-
   render() {
     return(
       <Article article={this.props.article} />
@@ -22,7 +16,6 @@ class ArticleContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  article_id: state.article.article_id,
   article: state.article_detail.article
 })
 

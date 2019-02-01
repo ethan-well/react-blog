@@ -15,10 +15,6 @@ const article = (state = {}, action) => {
         isFetching: false,
         articles: action.articles
       })
-    case 'TOGGLE_ARTICLE_TITLE':
-      return Object.assign({}, state, {
-        article_id: action.article_id
-      })
     default:
       return state
   }
