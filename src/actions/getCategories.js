@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 export const fetchCategories  = () =>  (dispathch, action) => {
   dispathch(requestCategories);
   return fetch('http://localhost:3300/api/categories')
