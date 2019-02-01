@@ -10,25 +10,27 @@ const formatData = (data_str) => {
   return data_str.substr(0,10);
 }
 
-const ArticleList = ({ articles, toggleArticleTitle }) => (
+const ArticleList = ({ articles, isFetching, toggleArticleTitle }) => (
   <ul className="article-list">
     {
-      articles && articles.length > 0
-      ? articles.map((item) => {
-          return <li key={item.id}>
-                    <a
-                      className="article-title"
-                      onClick={() => toggleArticleTitle(item.id)}
-                    >
-                      {item.title}
-                    </a>
-                    <span className="article-created-at">{ formatData(item.created_at) }</span>
-                    <div className="article-summary">
-                      {generateSummary(item.description)}
-                    </div>
-                  </li>
-        })
-      : '加载中...'
+      isFetching
+      ? '加载中...'
+      : articles && articles.length > 0
+        ? articles.map((item) => {
+            return <li key={item.id}>
+                      <a
+                        className="article-title"
+                        onClick={() => toggleArticleTitle(item.id)}
+                      >
+                        {item.title}
+                      </a>
+                      <span className="article-created-at">{ formatData(item.created_at) }</span>
+                      <div className="article-summary">
+                        {generateSummary(item.description)}
+                      </div>
+                    </li>
+          })
+        : '没有数据'
     }
   </ul>
 )

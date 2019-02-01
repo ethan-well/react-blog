@@ -11,13 +11,18 @@ class ArticleListContainer extends React.Component {
 
   render() {
     return(
-      <ArticleList articles={this.props.articles} toggleArticleTitle={this.props.toggleArticleTitle} />
+      <ArticleList
+        articles={this.props.articles}
+        isFetching={this.props.isFetching}
+        toggleArticleTitle={this.props.toggleArticleTitle}
+      />
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  articles: state.article.articles
+  articles: state.article.articles,
+  isFetching: state.article.isFetching
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
