@@ -5,6 +5,7 @@ import Editor from '../layouts/Editor';
 import CloseIconContainer from '../containers/CloseIconContainer';
 import ConfirmModelContainer from '../containers/ConfirmModelContainer';
 import TitleInputContainer from '../containers/TitleInputContainer';
+import ContentTextareaContainer from '../containers/ContentTextareaContainer';
 
 class NewArticle extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class NewArticle extends React.Component {
           </Row>
           <Row className='post-content'>
             <Col span={12} className="post-editor">
-             <textarea id="post_content_textarea" placeholder="开始你的创作..."  onChange={this.handleChange} value='xxxxx' />
+              <ContentTextareaContainer />
             </Col>
             <Col span={12} className='post-preview'>
               <ReactMarkdown source={'xxxxxxxxxx'} />

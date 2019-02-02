@@ -22,6 +22,10 @@ const new_article = (state = {}, action) => {
       return Object.assign({}, state, {
         title: action.title
       })
+    case 'HANDLE_CONTENT_CHANGE':
+      return Object.assign({}, state, {
+        content: action.content
+      })
     default:
       return state
   }
