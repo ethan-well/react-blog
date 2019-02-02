@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategories';
 import { switchMainContent } from '../actions/switchMainContent';
 import { fetchArticles } from '../actions/getArticleList';
-import { new_article } from '../actions/newArticle';
+import { newArticle } from '../actions/newArticle';
 import CategoryListComponent from '../components/CategoryListComponent';
 import React from 'react';
 
@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch) => ({
   toggleArticle: (id, main) => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContent(main))},
   fetchArticles: id => dispatch(fetchArticles(id)),
   switchMainContent: main => dispatch(switchMainContent(main)),
-  toggleAddIcon: (id, main) => {dispatch(new_article(id)), dispatch(switchMainContent(main)) }
+  toggleAddIcon: (id, main) => {dispatch(newArticle(id)), dispatch(switchMainContent(main)) }
 })
 
 export default connect(
