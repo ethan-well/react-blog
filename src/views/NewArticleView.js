@@ -4,6 +4,7 @@ import {Row, Col, Icon} from 'antd';
 import Editor from '../layouts/Editor';
 import CloseIconContainer from '../containers/CloseIconContainer';
 import ConfirmModelContainer from '../containers/ConfirmModelContainer';
+import TitleInputContainer from '../containers/TitleInputContainer';
 
 class NewArticle extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class NewArticle extends React.Component {
               <Icon type="close" className='close-icon' />
               <CloseIconContainer />
               <ConfirmModelContainer />
-              <input id="post-title" placeholder="文章标题" value='xxxxxx' onChange={this.handleChange} type='text' ref="post_title" />
+              <TitleInputContainer />
             </Col>
             <Col span={12} className="operator-area">
               <a className='save-post'>

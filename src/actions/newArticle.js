@@ -19,3 +19,13 @@ export const toggleCancelIcon = {
   ensure_close: false,
   show_ensure_component: false
 }
+
+export const handleTitleChange = (title) => ({
+  type: 'HANDLE_TITLE_CHANGE',
+  title: title
+})
+
+export const handleContentChange = (content) => ({
+  type: 'HANDLE_CONTENT_CHANGE',
+  content: content
+})

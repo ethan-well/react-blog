@@ -18,6 +18,10 @@ const new_article = (state = {}, action) => {
         show_ensure_component: action.show_ensure_component,
         ensure_close: false
       })
+    case 'HANDLE_TITLE_CHANGE':
+      return Object.assign({}, state, {
+        title: action.title
+      })
     default:
       return state
   }
