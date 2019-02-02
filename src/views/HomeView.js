@@ -5,7 +5,7 @@ import SiderNav from '../components/SiderNav';
 import MainContentContainer from '../containers/mainContentContainer';
 
 
-class Home extends Component {
+class HomeView extends Component {
   render() {
     return (
       <Index>
@@ -32,4 +32,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomeView;

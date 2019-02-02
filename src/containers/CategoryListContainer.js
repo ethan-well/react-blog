@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategories';
 import { switchMainContent } from '../actions/switchMainContent';
 import { fetchArticles } from '../actions/getArticleList';
-import CategoryList from '../components/CategoryList';
+import { new_article } from '../actions/newArticle';
+import CategoryListComponent from '../components/CategoryListComponent';
 import React from 'react';
 
 class CategoryListContainer extends React.Component {
@@ -23,7 +24,11 @@ class CategoryListContainer extends React.Component {
 
   render() {
     return (
-      <CategoryList state={this.props.categories} toggleArticle={this.props.toggleArticle} />
+      <CategoryListComponent
+        state={this.props.categories}
+        toggleArticle={this.props.toggleArticle}
+        toggleAddIcon={this.props.toggleAddIcon}
+      />
     )
   }
 }
@@ -34,9 +39,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCategories: () =>  dispatch(fetchCategories()),
-  toggleArticle: id => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContent('article_list'))},
+  toggleArticle: (id, main) => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContent(main))},
   fetchArticles: id => dispatch(fetchArticles(id)),
-  switchMainContent: main => dispatch(switchMainContent(main))
+  switchMainContent: main => dispatch(switchMainContent(main)),
+  toggleAddIcon: (id, main) => {dispatch(new_article(id)), dispatch(switchMainContent(main)) }
 })
 
 export default connect(

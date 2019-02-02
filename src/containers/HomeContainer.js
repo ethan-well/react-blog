@@ -3,9 +3,8 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
-import Home from '../views/Home';
+import IndexContainer from './IndexContainer';
 import reducer from '../reducers/index';
-import requestPostsByCategory from '../actions/getCategories'
 
 
 const store = createStore(
@@ -21,7 +20,7 @@ class HomeContainer extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Home />
+        <IndexContainer />
       </Provider>
     );
   }

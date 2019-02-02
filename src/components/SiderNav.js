@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserAvatar from './UserAvatar';
-import CategoryList from '../containers/CategoryList';
+import CategoryListContainer from '../containers/CategoryListContainer';
 import Style from './user_avatar.scss';
 
 class SiderNav extends Component {
@@ -13,7 +13,7 @@ class SiderNav extends Component {
       <div className="side-bar">
         <div className="side-nav">
           <UserAvatar/>
-          <CategoryList />
+          <CategoryListContainer />
         </div>
       </div>
     );
