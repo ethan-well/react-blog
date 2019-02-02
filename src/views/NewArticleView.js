@@ -18,6 +18,7 @@ class NewArticle extends React.Component {
         <div className='write-post-area'>
           <Row className='title-area'>
             <Col span={12} className="title">
+              <Icon type="close" className='close-icon' />
               <input id="post-title" placeholder="文章标题" value='xxxxxx' onChange={this.handleChange} type='text' ref="post_title" />
             </Col>
             <Col span={12} className="operator-area">
