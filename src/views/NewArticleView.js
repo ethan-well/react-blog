@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import {Row, Col, Icon} from 'antd';
 import Editor from '../layouts/Editor';
 import CloseIconContainer from '../containers/CloseIconContainer';
 import ConfirmModelContainer from '../containers/ConfirmModelContainer';
 import TitleInputContainer from '../containers/TitleInputContainer';
 import ContentTextareaContainer from '../containers/ContentTextareaContainer';
+import ContentMarkdownContainer from '../containers/ContentMarkdownContainer';
 
 class NewArticle extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class NewArticle extends React.Component {
               <ContentTextareaContainer />
             </Col>
             <Col span={12} className='post-preview'>
-              <ReactMarkdown source={'xxxxxxxxxx'} />
+              <ContentMarkdownContainer />
             </Col>
           </Row>
         </div>
