@@ -1,3 +1,5 @@
+import { message } from "antd";
+
 export const newArticle = (category) => ({
   type: 'NEW_ARTICLE',
   category: category
@@ -28,4 +30,27 @@ export const handleTitleChange = (title) => ({
 export const handleContentChange = (content) => ({
   type: 'HANDLE_CONTENT_CHANGE',
   content: content
+})
+
+export const togglePublishIcon = {
+  type: 'TOGGLE_PUBLISH_ICON'
+}
+
+// post 文章
+export const postArticle = ({title, content, categery_id, user_id}) => (dispatch, action) => {
+  dispatch(startPostArticle)
+}
+
+export const startPostArticle = {
+  type: 'START_POST_ARTICLE'
+}
+
+export const postArticleSuccess = (json) => ({
+  type: 'POST_ARTICLE_SUCCESS',
+  res: json
+})
+
+export const postError = (error) => ({
+  type: 'POST_ARTICLE_ERROR',
+  message: error
 })

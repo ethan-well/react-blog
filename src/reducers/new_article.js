@@ -26,6 +26,10 @@ const new_article = (state = {}, action) => {
       return Object.assign({}, state, {
         content: action.content
       })
+    case 'TOGGLE_PUBLISH_ICON':
+      return Object.assign({}, state, {
+        show_publish_card: !state.show_publish_card
+      })
     default:
       return state
   }

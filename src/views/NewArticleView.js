@@ -6,6 +6,8 @@ import ConfirmModelContainer from '../containers/ConfirmModelContainer';
 import TitleInputContainer from '../containers/TitleInputContainer';
 import ContentTextareaContainer from '../containers/ContentTextareaContainer';
 import ContentMarkdownContainer from '../containers/ContentMarkdownContainer';
+// import PublishCardContainer from '../containers/PublishCardContainer';
+import PublishIconContainer from '../containers/PublishIconContainer';
 
 class NewArticle extends React.Component {
   constructor(props) {
@@ -28,10 +30,8 @@ class NewArticle extends React.Component {
               <TitleInputContainer />
             </Col>
             <Col span={12} className="operator-area">
-              <a className='save-post'>
-                发布
-                <Icon type="caret-up" />
-              </a>
+              <PublishIconContainer />
+              {/* <PublishCardContainer /> */}
             </Col>
           </Row>
           <Row className='post-content'>
