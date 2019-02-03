@@ -26,7 +26,7 @@ class TitleInputContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  title: state.new_article.title
+  title: state.new_article.title || ''
 })
 
 const mapDispatchToProps = (dispatch) => ({
