@@ -6,7 +6,7 @@ import ConfirmModelContainer from '../containers/ConfirmModelContainer';
 import TitleInputContainer from '../containers/TitleInputContainer';
 import ContentTextareaContainer from '../containers/ContentTextareaContainer';
 import ContentMarkdownContainer from '../containers/ContentMarkdownContainer';
-// import PublishCardContainer from '../containers/PublishCardContainer';
+import PublishCardContainer from '../containers/PublishCardContainer';
 import PublishIconContainer from '../containers/PublishIconContainer';
 
 class NewArticle extends React.Component {
@@ -31,7 +31,7 @@ class NewArticle extends React.Component {
             </Col>
             <Col span={12} className="operator-area">
               <PublishIconContainer />
-              {/* <PublishCardContainer /> */}
+              <PublishCardContainer />
             </Col>
           </Row>
           <Row className='post-content'>

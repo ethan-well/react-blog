@@ -11,12 +11,13 @@ class PublishCardContainer extends React.Component {
   render() {
     return(
       <Card
-        title="发布文章"
-        style={ {display: this.props.show_publish_card ? '' : 'none'} }
-        className="post-tags-selector"
-        actions={[<Button type="primary" onClick={this.props.postArticle(this.props.article_data)} ghost>发布</Button>]}
+        size="small"
+        title="Small size card"
+        style={{ width: 500 }}
       >
-        <p className="custom-margin">选择分类</p>
+        <p>Card content</p>
+        <p>Card content</p>
+        <p>Card content</p>
       </Card>
     )
   }
