@@ -11,9 +11,8 @@ class PublishCardContainer extends React.Component {
   render() {
     return(
       <Card
-        size="small"
-        title="Small size card"
-        style={{ width: 500 }}
+        title="发布文章"
+        style={{ width: 500, position: 'absolute', right: 27 }}
       >
         <p>Card content</p>
         <p>Card content</p>

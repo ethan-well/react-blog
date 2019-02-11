@@ -10,10 +10,12 @@ class PublishIconContainer extends React.Component {
 
   render() {
     return (
-      <a className='save-post' onClick={ this.props.togglePublishIcon }>
-        发布
-        <Icon type={ this.props.show_publish_card ? 'caret-up' : 'caret-down' }/>
-      </a>
+      <div className='save-post'>
+        <a className='save-post-link' onClick={ this.props.togglePublishIcon }>
+          发布
+          <Icon type={ this.props.show_publish_card ? 'caret-up' : 'caret-down' }/>
+        </a>
+      </div>
     )
   }
 }

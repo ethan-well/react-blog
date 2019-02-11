@@ -48,26 +48,30 @@ html, body {
         background-color: #fafafa;
       }
       .operator-area{
-        text-align: right;
         padding-right: 20px;
         height: 60px;
         line-height: 60px;
+
         .save-post {
+          text-align: right;
+        }
+
+        .save-post-link {
           position: relative;
           color: #40a9ff;
         }
-        .save-post:hover {
+        .save-post-link:hover {
           cursor: pointer;
           color: #1890ff;
         }
-        .save-post i:before {
+        .save-post-link i:before {
           font-size: 10px;
           position: absolute;
           top: 3px;
           right: -16px;
         }
 
-        .save-post .post-tags-selector {
+        .save-post-link .post-tags-selector {
           position: absolute;
           width: 450px;
           text-align: left;
