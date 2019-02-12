@@ -3,6 +3,7 @@ import ConfirmModelComponent from '../components/ConfirmModelComponent';
 import { connect } from 'react-redux';
 import { toggleEnsureIcon, toggleCancelIcon } from '../actions/newArticle';
 import { switchMainContent } from '../actions/switchMainContent'
+import history from '../history'
 
 class ConfirmModelContainer extends React.Component {
   render() {
@@ -21,7 +22,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  handleOk: () => { dispatch(toggleEnsureIcon); dispatch(switchMainContent('article_list')) },
+  handleOk: () => { dispatch(toggleEnsureIcon); dispatch(switchMainContent('article_list')); history.push('/')},
   handleCancel: () => dispatch(toggleCancelIcon)
 })
 
