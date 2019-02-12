@@ -27,13 +27,26 @@ class PublishCardContainer extends React.Component {
       <Card
         actions={[<a onClick={this.handleClick}>发布</a>]}
         title="发布文章"
-        style={{ width: 500, position: 'absolute', right: 27, zIndex: 100 }}
+        style={
+          this.props.show_publish_card
+          ? {
+              width: 500,
+              position: 'absolute',
+              right: 27,
+              zIndex: 100
+            }
+          : {display: 'none'}
+        }
       >
         {
           this.props.categories && this.props.categories.length > 0
-          ? this.props.categories.map((category)=> {
-            return <CategoryTagContainer key={category.id} ownCategory={category.id} categoryName={category.name} />
-            })
+          ? this.props.categories.map((category)=> (
+              <CategoryTagContainer
+                key={category.id}
+                ownCategory={category.id}
+                categoryName={category.name}
+              />
+            ))
           : '暂无数据'
         }
       </Card>
