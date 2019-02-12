@@ -13,7 +13,7 @@ class PublishCardContainer extends React.Component {
     return(
       <Card
         title="发布文章"
-        style={{ width: 500, position: 'absolute', right: 27 }}
+        style={{ width: 500, position: 'absolute', right: 27, zIndex: 100 }}
       >
         {
           this.props.categories && this.props.categories.length > 0

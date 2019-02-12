@@ -11,12 +11,11 @@ class CategoryTagContainer extends React.Component {
   }
 
   handleChange = () => {
-    console.log('xxxxxx');
-    // this.props.switchCategoryTag(this.props.ownCategory)
+    this.props.switchCategoryTag(this.props.ownCategory)
   }
 
   render() {
-    return <CheckableTag checked={this.props.checked} onChange={this.handleChange}>{this.props.categoryName}</CheckableTag>
+    return <CheckableTag style={{marginBottom: 16}} checked={this.props.checked} onChange={this.handleChange}>{this.props.categoryName}</CheckableTag>
   }
 }
 
