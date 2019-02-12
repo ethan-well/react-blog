@@ -10,8 +10,16 @@ class PublishCardContainer extends React.Component {
   }
 
   handleClick = () => {
-    console.log(this.props.article_data)
-    this.props.postArticle(this.props.article_data.title, this.props.article_data.content, this.props.article_data.category_id, this.props.article_data.user_id)
+    if (
+      this.props.article_data.title
+      && this.props.article_data.content
+      && this.props.article_data.category_id
+      && this.props.article_data.user_id
+    ) {
+      this.props.postArticle(this.props.article_data.title, this.props.article_data.content, this.props.article_data.category_id, this.props.article_data.user_id)
+    } else {
+      alert('信息不完善，不能提交！')
+    }
   }
 
   render() {
@@ -37,8 +45,8 @@ const mapStateToProps = (state) => ({
   show_publish_card: state.new_article.show_publish_card,
   article_data: {
     title: state.new_article.title,
-    content: state.new_article.connect,
-    category_id: state.new_article.category_id,
+    content: state.new_article.content,
+    category_id: state.new_article.category,
     user_id: state.new_article.user_id
   },
   categories: state.category.categories
