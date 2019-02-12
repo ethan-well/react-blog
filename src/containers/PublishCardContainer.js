@@ -16,7 +16,7 @@ class PublishCardContainer extends React.Component {
       && this.props.article_data.category_id
       && this.props.article_data.user_id
     ) {
-      this.props.postArticle(this.props.article_data.title, this.props.article_data.content, this.props.article_data.category_id, this.props.article_data.user_id)
+      this.props.postArticle(this.props.article_data)
     } else {
       alert('信息不完善，不能提交！')
     }
@@ -53,8 +53,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  postArticle: (title, content, category_id, user_id) =>
-    dispatch(postArticle(title, content, category_id,user_id))
+  postArticle: ({...new_article}) =>
+    dispatch(postArticle(new_article))
 })
 
 export default connect(

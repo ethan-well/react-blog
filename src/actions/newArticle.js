@@ -37,7 +37,7 @@ export const togglePublishIcon = {
 }
 
 // post 文章
-export const postArticle = (title, content, categery_id, user_id) => (dispatch, action) => {
+export const postArticle = ({...new_article}) => (dispatch, action) => {
   dispatch(startPostArticle)
 }
 
