@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Icon } from 'antd';
 import Style from './categories_list.scss';
-import { toggleAddIcon } from '../actions/newArticle';
+import { Link } from 'react-router-dom';
+
 
 const CategoryListComponent = ({ state, toggleArticle, toggleAddIcon }) => (
   <div className="categories-area">
@@ -15,11 +16,16 @@ const CategoryListComponent = ({ state, toggleArticle, toggleAddIcon }) => (
                      >
                       {item.name}
                      </a>
-                     <Icon
-                       type='plus'
-                       className='article add'
-                       onClick={ () => toggleAddIcon(item.id, 'new_article')}
-                     />
+                     <Link
+                      to='/new-aricle'
+                      className='nav-link'
+                     >
+                      <Icon
+                        type='plus'
+                        className='article add'
+                        onClick={ () => toggleAddIcon(item.id, 'new_article')}
+                      />
+                     </Link>
                    </li>
           })
         : '加载中...'

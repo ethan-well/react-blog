@@ -2,21 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import NewArticleView from '../views/NewArticleView';
 import HomeView from '../views/HomeView';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class IndexContainer extends React.Component {
   render() {
     return (
-      this.props.main_content == 'new_article'
-      ? <NewArticleView />
-      : <HomeView />
+      <Router>
+        <div>
+          <Route exact path="/" component={HomeView} />
+          <Route path='/new-aricle' component={NewArticleView} />
+        </div>
+      </Router>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  main_content: state.main_content.main_content
-})
 
-export default connect(
-  mapStateToProps
-)(IndexContainer)
+
+export default IndexContainer;

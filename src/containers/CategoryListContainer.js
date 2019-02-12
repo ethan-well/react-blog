@@ -42,7 +42,7 @@ const mapDispatchToProps = (dispatch) => ({
   toggleArticle: (id, main) => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContent(main))},
   fetchArticles: id => dispatch(fetchArticles(id)),
   switchMainContent: main => dispatch(switchMainContent(main)),
-  toggleAddIcon: (id, main) => {dispatch(newArticle(id)), dispatch(switchMainContent(main)) }
+  toggleAddIcon: (id) => {dispatch(newArticle(id))}
 })
 
 export default connect(

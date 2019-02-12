@@ -8,7 +8,7 @@
       width: 120%;
       position: relative;
     }
-    a {
+    a:not(.nav-link) {
       cursor: pointer;
       display: inline-block;
       padding: 5px 0px;
@@ -16,13 +16,14 @@
       line-height: 24px;
       transition: color 1s;
       transition: background-color 2s;
-    }
-    a:hover {
-      color: #1890ff;
-    }
-    a.active {
-      color: #1890ff;
-      background-color: #e6f7ff;
+
+      &:hover {
+        color: #1890ff;
+      }
+      &.active {
+        color: #1890ff;
+        background-color: #e6f7ff;
+      }
     }
     .article.add {
       cursor: pointer;
