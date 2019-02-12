@@ -1,6 +1,7 @@
 import React from 'react';
 import { handleContentChange } from '../actions/newArticle';
 import { connect } from 'react-redux';
+import { fetchCategories } from '../actions/getCategories';
 
 class ContentTextareaContainer extends React.Component {
   constructor(props) {
@@ -14,7 +15,13 @@ class ContentTextareaContainer extends React.Component {
     this.setState({content: event.target.value})
   }
 
-  componentDidUpdate () {
+  componentWillMount() {
+    if (Object.keys(this.props.category).length === 0) {
+      this.props.fetchCategories()
+    }
+  }
+
+  componentDidUpdate() {
     this.props.handleContentChange(this.state.content)
   }
 
@@ -26,15 +33,16 @@ class ContentTextareaContainer extends React.Component {
 }
 
 const mapStatetoProps = (state) => ({
-  content: state.new_article.content
+  content: state.new_article.content,
+  category: state.category
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleContentChange: content => dispatch(handleContentChange(content))
+  handleContentChange: content => dispatch(handleContentChange(content)),
+  fetchCategories: () =>  dispatch(fetchCategories())
 })
 
 export default connect(
   mapStatetoProps,
   mapDispatchToProps
-
 )(ContentTextareaContainer)

@@ -14,10 +14,6 @@ class NewArticle extends React.Component {
     super(props);
   }
 
-  handleChange = (e) => {
-    console.log('change')
-  }
-
   render(){
     return(
       <Editor>
