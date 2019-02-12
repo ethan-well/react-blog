@@ -30,6 +30,10 @@ const new_article = (state = {}, action) => {
       return Object.assign({}, state, {
         show_publish_card: !state.show_publish_card
       })
+    case 'SWITCH_CATEGORY_TAG':
+      return Object.assign({}, state, {
+        category: action.category
+      })
     default:
       return state
   }

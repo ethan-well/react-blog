@@ -54,3 +54,8 @@ export const postError = (error) => ({
   type: 'POST_ARTICLE_ERROR',
   message: error
 })
+
+export const switchCategoryTag = (category) => ({
+  type: 'SWITCH_CATEGORY_TAG',
+  category: category
+})
