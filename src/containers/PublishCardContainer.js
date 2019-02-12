@@ -1,4 +1,4 @@
-import { Card, Button } from 'antd';
+import { Card } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
 import { postArticle } from '../actions/newArticle';
@@ -9,9 +9,15 @@ class PublishCardContainer extends React.Component {
     super(props)
   }
 
+  handleClick = () => {
+    console.log(this.props.article_data)
+    this.props.postArticle(this.props.article_data.title, this.props.article_data.content, this.props.article_data.category_id, this.props.article_data.user_id)
+  }
+
   render() {
     return(
       <Card
+        actions={[<a onClick={this.handleClick}>发布</a>]}
         title="发布文章"
         style={{ width: 500, position: 'absolute', right: 27, zIndex: 100 }}
       >
