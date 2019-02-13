@@ -1,3 +1,5 @@
+import history from '../history';
+
 export const login = (data) => (dispatch, action) => {
   dispatch(startRequest);
   return fetch(`http://localhost:3300/api/auth/login`, {
@@ -10,6 +12,9 @@ export const login = (data) => (dispatch, action) => {
   }).then(response => response.json())
   .then(json => {
     dispatch(requestSuccess(json))
+    if (!!json.status) {
+      history.push('/')
+    }
   })
   .catch(error => dispatch(requestFailed(error)))
 }
@@ -29,3 +34,7 @@ export const requestSuccess = (json) => ({
   access_token: json.access_token,
   message: json.msg
 })
+
+export const toggleCloseAlertIcon =  {
+  type: 'TOGGLE_CLOSE_ALERT_ICON'
+}

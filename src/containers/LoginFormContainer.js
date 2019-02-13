@@ -2,7 +2,8 @@ import React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 import { connect } from 'react-redux';
-import { login } from '../actions/authenAction';
+import { login, toggleCloseAlertIcon } from '../actions/authenAction';
+import AlertIt from '../views/AlertIt';
 
 class NormalLoginFormContainer extends React.Component {
   constructor(props) {
@@ -13,11 +14,13 @@ class NormalLoginFormContainer extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log(values)
-        console.log(this.props.authen)
         this.props.login(values)
       }
     });
+  }
+
+  handleClose = () => {
+    this.props.toggleCloseAlertIcon()
   }
 
   render() {
@@ -43,6 +46,14 @@ class NormalLoginFormContainer extends React.Component {
             登录
           </Button>
         </FormItem>
+        {
+          this.props.authen.show_alert &&
+            <AlertIt
+              message='登陆失败：账号或密码错误'
+              handleClose={this.handleClose}
+              type='warning'
+            />
+        }
       </Form>
     );
   }
@@ -53,7 +64,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (data) => dispatch(login(data))
+  login: (data) => dispatch(login(data)),
+  toggleCloseAlertIcon: () => dispatch(toggleCloseAlertIcon),
 })
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginFormContainer);
