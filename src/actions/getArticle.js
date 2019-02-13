@@ -3,7 +3,6 @@ export const fetchArticle = (id) => (dispatch, action) => {
   return fetch(`http://localhost:3300/api/articles/${id}`)
     .then(response => response.json())
     .then(json => {
-      console.log('json', json);
       dispatch(reciveArticle(json));
     })
     .catch(error => dispatch(fetchError(error)))

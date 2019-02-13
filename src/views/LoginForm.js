@@ -1,10 +1,9 @@
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 import * as HttpHandler from '../conserns/HttpHandler';
 import AlertIt from './AlertIt';
-import createHistory from 'history/createBrowserHistory';
-const history = createHistory({basename: "/", forceRefresh: true})
+import history from '../history';
 
 class NormalLoginForm extends React.Component {
   constructor(props) {

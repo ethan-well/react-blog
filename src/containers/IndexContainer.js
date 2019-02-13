@@ -4,6 +4,7 @@ import NewArticleView from '../views/NewArticleView';
 import HomeView from '../views/HomeView';
 import { Router, Route } from 'react-router-dom'
 import history from '../history';
+import Login from '../views/Login';
 
 class IndexContainer extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class IndexContainer extends React.Component {
         <div>
           <Route exact path="/" component={HomeView} />
           <Route path='/new-aricle' component={NewArticleView} />
+          <Route path='/login' component={Login} />
         </div>
       </Router>
     )
