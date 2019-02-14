@@ -34,6 +34,10 @@ const new_article = (state = {}, action) => {
       return Object.assign({}, state, {
         category: action.category
       })
+    case 'TOGGLE_EDIT_ICON':
+      return Object.assign({}, state, {
+        edit: true
+      })
     default:
       return state
   }

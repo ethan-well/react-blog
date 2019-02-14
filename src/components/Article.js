@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Divider } from  'antd';
+import { Divider, Icon } from  'antd';
 import style from './article.scss';
 
-const Article = ({ article }) => (
+const Article = ({ article, loginSuccess, toggleEditIcon }) => (
   <div className='article-content'>
     { article
       ? <div>
           <div className='title'>
             {article.title}
+            {
+              loginSuccess &&
+                <Icon
+                  type="edit"
+                  theme="twoTone"
+                  className="edit-icon"
+                  onClick={toggleEditIcon}
+                />
+            }
           </div>
           <Divider className='divider' />
           <div className='content'>
