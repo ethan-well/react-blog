@@ -15,7 +15,7 @@ class ContentMarkdownContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  content: state.new_article.content
+  content: state.new_article.article.content
 })
 
 export default connect(
