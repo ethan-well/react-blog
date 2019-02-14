@@ -4,7 +4,7 @@ import Style from './categories_list.scss';
 import { Link } from 'react-router-dom';
 
 
-const CategoryListComponent = ({ state, toggleArticle, toggleAddIcon }) => (
+const CategoryListComponent = ({ state, loginSuccess, toggleArticle, toggleAddIcon }) => (
   <div className="categories-area">
     <ul className="categories-list">
       { state && state.categories && state.categories.length > 0
@@ -20,11 +20,14 @@ const CategoryListComponent = ({ state, toggleArticle, toggleAddIcon }) => (
                       to='/new-aricle'
                       className='nav-link'
                      >
-                      <Icon
-                        type='plus'
-                        className='article add'
-                        onClick={ () => toggleAddIcon(item.id, 'new_article')}
-                      />
+                     {
+                       loginSuccess &&
+                        <Icon
+                          type='plus'
+                          className='article add'
+                          onClick={ () => toggleAddIcon(item.id, 'new_article')}
+                        />
+                      }
                      </Link>
                    </li>
           })

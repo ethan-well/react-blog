@@ -26,6 +26,7 @@ class CategoryListContainer extends React.Component {
     return (
       <CategoryListComponent
         state={this.props.categories}
+        loginSuccess={this.props.loginSuccess}
         toggleArticle={this.props.toggleArticle}
         toggleAddIcon={this.props.toggleAddIcon}
       />
@@ -34,7 +35,8 @@ class CategoryListContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  categories: state.category
+  categories: state.category,
+  loginSuccess: state.authen.loginSuccess,
 })
 
 const mapDispatchToProps = (dispatch) => ({
