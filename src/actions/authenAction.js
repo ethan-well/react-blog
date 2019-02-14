@@ -13,7 +13,8 @@ export const login = (data) => (dispatch, action) => {
   .then(json => {
     dispatch(requestSuccess(json))
     if (!!json.status) {
-      history.push('/')
+      history.push('/');
+      sessionStorage.setItem('access_token', json.access_token);
     }
   })
   .catch(error => dispatch(requestFailed(error)))
