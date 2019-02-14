@@ -33,7 +33,7 @@ export const requestSuccess = (json) => ({
   type: 'REQUEST_SUCCESS',
   loginSuccess: !!json.status,
   access_token: json.access_token,
-  message: json.msg
+  message: json.msg,
 })
 
 export const toggleCloseAlertIcon =  {

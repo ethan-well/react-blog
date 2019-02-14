@@ -3,6 +3,7 @@ import Article from '../components/Article';
 import { fetchArticle } from '../actions/getArticle';
 import { toggleEditIcon } from '../actions/newArticle';
 import { connect } from 'react-redux';
+import history from '../history';
 
 class ArticleContainer extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchArticle: id => dispatch(fetchArticle(id)),
-  toggleEditIcon: (article) => dispatch(toggleEditIcon(article)),
+  toggleEditIcon: (article) => dispatch(toggleEditIcon(article), history.push('/new-aricle')),
 })
 
 export default connect(

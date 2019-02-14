@@ -5,28 +5,21 @@ import { connect } from 'react-redux';
 class TitleInputContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      title: this.props.title
-    }
   }
 
   handleChange = (event) => {
-    this.setState({title: event.target.value})
-  }
-
-  componentDidUpdate () {
-    this.props.handleTitleChange(this.state.title)
+    this.props.handleTitleChange(event.target.value)
   }
 
   render() {
     return (
-      <input id="post-title" placeholder="文章标题" value={this.state.title} onChange={this.handleChange} type='text' />
+      <input id="post-title" placeholder="文章标题" value={this.props.title} onChange={this.handleChange} type='text' />
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  title: state.new_article.title || ''
+  title: state.new_article.article.title || ''
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,13 +6,10 @@ import { fetchCategories } from '../actions/getCategories';
 class ContentTextareaContainer extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      content: this.props.content
-    }
   }
 
   handleChange = (event) => {
-    this.setState({content: event.target.value})
+    this.props.handleContentChange(event.target.value)
   }
 
   componentWillMount() {
@@ -21,20 +18,16 @@ class ContentTextareaContainer extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    this.props.handleContentChange(this.state.content)
-  }
-
   render() {
     return (
-      <textarea id="post_content_textarea" placeholder="开始你的创作..."  onChange={this.handleChange} value={this.state.content} />
+      <textarea id="post_content_textarea" placeholder="开始你的创作..."  onChange={this.handleChange} value={this.props.article.content} />
     )
   }
 }
 
 const mapStatetoProps = (state) => ({
-  content: state.new_article.content,
-  category: state.category
+  category: state.category,
+  article: state.new_article.article
 })
 
 const mapDispatchToProps = (dispatch) => ({
