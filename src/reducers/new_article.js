@@ -1,4 +1,4 @@
-const new_article = (state = {}, action) => {
+const new_article = (state = {article: {}}, action) => {
   switch (action.type) {
     case 'NEW_ARTICLE':
       const article0 = Object.assign({}, state.article, {
