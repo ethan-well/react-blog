@@ -27,7 +27,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchArticle: id => dispatch(fetchArticle(id)),
-  toggleEditIcon: () => dispatch(toggleEditIcon()),
+  toggleEditIcon: (article) => dispatch(toggleEditIcon(article)),
 })
 
 export default connect(

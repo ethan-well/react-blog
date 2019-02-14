@@ -15,7 +15,7 @@ const Article = ({ article, loginSuccess, toggleEditIcon }) => (
                   type="edit"
                   theme="twoTone"
                   className="edit-icon"
-                  onClick={toggleEditIcon}
+                  onClick={() => toggleEditIcon(article)}
                 />
             }
           </div>

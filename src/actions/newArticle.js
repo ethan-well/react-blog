@@ -60,6 +60,7 @@ export const switchCategoryTag = (category) => ({
   category: category
 })
 
-export const toggleEditIcon = () => ({
+export const toggleEditIcon = (article) => ({
   type: 'TOGGLE_EDIT_ICON',
+  article: article,
 })

@@ -1,8 +1,11 @@
 const new_article = (state = {}, action) => {
   switch (action.type) {
     case 'NEW_ARTICLE':
+      const article0 = Object.assign({}, state.article, {
+        category_id: action.category
+      })
       return Object.assign({}, state, {
-        category: action.category
+        article: article0
       })
     case 'TOGGLE_CLOSE_ICON':
       return Object.assign({}, state, {
@@ -19,24 +22,31 @@ const new_article = (state = {}, action) => {
         ensure_close: false
       })
     case 'HANDLE_TITLE_CHANGE':
-      return Object.assign({}, state, {
+      const article1 = Object.assign({}, state.article, {
         title: action.title
       })
-    case 'HANDLE_CONTENT_CHANGE':
       return Object.assign({}, state, {
-        content: action.content
+        article: article1,
+      })
+    case 'HANDLE_CONTENT_CHANGE':
+      const article2 = Object.assign({}, state.article, {
+        content: action.content,
+      })
+      return Object.assign({}, state, {
+        article: article2,
       })
     case 'TOGGLE_PUBLISH_ICON':
       return Object.assign({}, state, {
-        show_publish_card: !state.show_publish_card
+        show_publish_card: !state.show_publish_card,
       })
     case 'SWITCH_CATEGORY_TAG':
       return Object.assign({}, state, {
-        category: action.category
+        category: action.category,
       })
     case 'TOGGLE_EDIT_ICON':
       return Object.assign({}, state, {
-        edit: true
+        edit: true,
+        article: action.article,
       })
     default:
       return state
