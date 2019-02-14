@@ -64,3 +64,7 @@ export const toggleEditIcon = (article) => ({
   type: 'TOGGLE_EDIT_ICON',
   article: article,
 })
+
+export const toggleBackIcon = {
+  type: 'TOGGLE_BACK_ICON',
+}

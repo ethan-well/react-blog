@@ -3,11 +3,17 @@ import ReactMarkdown from 'react-markdown';
 import { Divider, Icon } from  'antd';
 import style from './article.scss';
 
-const Article = ({ article, loginSuccess, toggleEditIcon }) => (
+const Article = ({ article, loginSuccess, toggleEditIcon, toggleBackIcon }) => (
   <div className='article-content'>
     { article
       ? <div>
           <div className='title'>
+            <Icon
+              type="left-circle"
+              theme="twoTone"
+              className="back-icon"
+              onClick={toggleBackIcon}
+            />
             {article.title}
             {
               loginSuccess &&

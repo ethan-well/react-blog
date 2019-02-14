@@ -1,7 +1,8 @@
 import React from 'react';
 import Article from '../components/Article';
 import { fetchArticle } from '../actions/getArticle';
-import { toggleEditIcon } from '../actions/newArticle';
+import { toggleEditIcon, toggleBackIcon } from '../actions/newArticle';
+import { switchMainContent } from '../actions/switchMainContent';
 import { connect } from 'react-redux';
 import history from '../history';
 
@@ -16,6 +17,7 @@ class ArticleContainer extends React.Component {
         article={this.props.article}
         loginSuccess={this.props.loginSuccess}
         toggleEditIcon={this.props.toggleEditIcon}
+        toggleBackIcon={this.props.toggleBackIcon}
       />
     )
   }
@@ -29,6 +31,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchArticle: id => dispatch(fetchArticle(id)),
   toggleEditIcon: (article) => dispatch(toggleEditIcon(article), history.push('/new-aricle')),
+  toggleBackIcon: () => {dispatch(toggleBackIcon), dispatch(switchMainContent('article_list'))},
 })
 
 export default connect(

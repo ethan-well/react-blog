@@ -48,6 +48,10 @@ const new_article = (state = {article: {}}, action) => {
         edit: true,
         article: action.article,
       })
+    case 'TOGGLE_BACK_ICON':
+      return Object.assign({}, state, {
+
+      })
     default:
       return state
   }
