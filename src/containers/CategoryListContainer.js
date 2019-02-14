@@ -13,7 +13,6 @@ class CategoryListContainer extends React.Component {
 
   componentDidMount() {
     this.props.fetchCategories()
-    this.props.switchMainContent('article_list')
   }
 
   componentDidUpdate() {

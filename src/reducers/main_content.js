@@ -1,4 +1,4 @@
-const main_content = (state = {}, action) => {
+const main_content = (state = {main_content: 'article_list'}, action) => {
   switch (action.type) {
     case 'SWITCH_MAIN_CONTENT':
       return Object.assign({}, state, {
