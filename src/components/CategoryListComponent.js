@@ -25,7 +25,7 @@ const CategoryListComponent = ({ state, loginSuccess, toggleArticle, toggleAddIc
                         <Icon
                           type='plus'
                           className='article add'
-                          onClick={ () => toggleAddIcon(item.id, 'new_article')}
+                          onClick={() => toggleAddIcon(item.id)}
                         />
                       }
                      </Link>

@@ -2,10 +2,13 @@ const new_article = (state = {article: {}}, action) => {
   switch (action.type) {
     case 'NEW_ARTICLE':
       const article0 = Object.assign({}, state.article, {
-        category_id: action.category
+        category_id: action.category,
+        title: '',
+        content: '',
       })
       return Object.assign({}, state, {
-        article: article0
+        article: article0,
+        edit: false,
       })
     case 'TOGGLE_CLOSE_ICON':
       return Object.assign({}, state, {

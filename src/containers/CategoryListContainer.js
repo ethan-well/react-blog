@@ -12,6 +12,8 @@ class CategoryListContainer extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.categories && this.props.categories.active_id) return
+
     this.props.fetchCategories()
   }
 
