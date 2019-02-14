@@ -1,4 +1,4 @@
-const new_article = (state = {article: {}}, action) => {
+const new_article = (state = {article: {access_token: sessionStorage.access_token}}, action) => {
   switch (action.type) {
     case 'NEW_ARTICLE':
       const article0 = Object.assign({}, state.article, {
@@ -47,9 +47,12 @@ const new_article = (state = {article: {}}, action) => {
         category: action.category,
       })
     case 'TOGGLE_EDIT_ICON':
+      const article3 = Object.assign({}, action.article, {
+        access_token: state.article.access_token,
+      })
       return Object.assign({}, state, {
         edit: true,
-        article: action.article,
+        article: article3,
       })
     case 'TOGGLE_BACK_ICON':
       return Object.assign({}, state, {

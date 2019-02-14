@@ -22,7 +22,7 @@ class CategoryTagContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => ({
   category: state.new_article.category,
   ownCategory: ownProps.ownCategory,
-  checked: state.new_article.category == ownProps.ownCategory
+  checked: state.new_article.article.category_id == ownProps.ownCategory
 })
 
 const mapDisppatchToProps = (dispatch) => ({
