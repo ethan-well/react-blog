@@ -39,3 +39,13 @@ export const requestSuccess = (json) => ({
 export const toggleCloseAlertIcon =  {
   type: 'TOGGLE_CLOSE_ALERT_ICON'
 }
+
+export const goToLoginPage = (dispatch,action) => {
+  dispatch(changeAlertInfo);
+  // history.push('/login');
+}
+
+export const changeAlertInfo = {
+  type: 'CHANGE_ALERT_INFO',
+  message: '继续操作前，请登陆！',
+}

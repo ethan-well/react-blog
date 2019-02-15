@@ -19,10 +19,16 @@ const authen =
           loginSuccess: action.loginSuccess,
           access_token: action.access_token,
           show_alert: !action.loginSuccess,
+          message: state.message,
         })
       case 'TOGGLE_CLOSE_ALERT_ICON':
         return Object.assign({}, state, {
-          show_alert: false
+          show_alert: false,
+        })
+      case 'CHANGE_ALERT_INFO':
+        return Object.assign({}, state, {
+          show_alert: true,
+          message: action.message,
         })
       default:
         return state

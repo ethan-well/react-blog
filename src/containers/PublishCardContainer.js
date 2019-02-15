@@ -4,11 +4,18 @@ import { connect } from 'react-redux';
 import { createArticle, updateArticle, toggleCloseAlertIcon } from '../actions/newArticle';
 import CategoryTagContainer from '../containers/CategoryTagContainer';
 import AlertIt from '../views/AlertIt';
+import { goToLoginPage } from '../actions/authenAction';
 
 
 class PublishCardContainer extends React.Component {
   constructor(props) {
     super(props)
+  }
+
+  componentWillMount() {
+    if (this.props.article_data.access_token === undefined) {
+      this.props.goToLoginPage();
+    }
   }
 
   handleClick = () => {
@@ -88,6 +95,7 @@ const mapDispatchToProps = (dispatch) => ({
   updateArticle: ({...new_article}) =>
     dispatch(updateArticle(new_article)),
   toggleCloseAlertIcon: () => dispatch(toggleCloseAlertIcon),
+  goToLoginPage: () => dispatch(goToLoginPage),
 })
 
 export default connect(

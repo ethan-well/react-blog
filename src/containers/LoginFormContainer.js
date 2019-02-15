@@ -49,7 +49,7 @@ class NormalLoginFormContainer extends React.Component {
         {
           this.props.authen.show_alert &&
             <AlertIt
-              message='登陆失败：账号或密码错误'
+              message={this.props.authen.message}
               handleClose={this.handleClose}
               type='warning'
             />
