@@ -1,4 +1,4 @@
-import { message } from "antd";
+import history from '../history';
 
 export const newArticle = (category) => ({
   type: 'NEW_ARTICLE',
@@ -36,22 +36,42 @@ export const togglePublishIcon = {
   type: 'TOGGLE_PUBLISH_ICON'
 }
 
-// post 文章
-export const postArticle = ({...new_article}) => (dispatch, action) => {
+// post create
+export const createArticle = ({...new_article}) => (dispatch, action) => {
   dispatch(startPostArticle)
+  console.log('info', new_article);
+  // return fetch(`http://localhost:3300/api/`)
+}
+
+export const updateArticle = ({...data}) => (dispatch, action) => {
+  dispatch(startPostArticle)
+  console.log('updateArticle', data);
+  return fetch(`http://localhost:3300/api/articles/${data.id}`, {
+    method: 'PUT',
+    mode: 'cors',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+  }).then(response => response.json())
+  .then(json => {
+    dispatch(postArticleSuccessed(json))
+    // history.push('/');
+  })
+  .catch(error => dispatch(postError(error)))
 }
 
 export const startPostArticle = {
   type: 'START_POST_ARTICLE'
 }
 
-export const postArticleSuccess = (json) => ({
-  type: 'POST_ARTICLE_SUCCESS',
-  res: json
+export const postArticleSuccessed = (json) => ({
+  type: 'POST_ARTICLE_SUCCESSED',
+  json: json
 })
 
 export const postError = (error) => ({
-  type: 'POST_ARTICLE_ERROR',
+  type: 'POST_ARTICLE_FAILED',
   message: error
 })
 
@@ -67,4 +87,8 @@ export const toggleEditIcon = (article) => ({
 
 export const toggleBackIcon = {
   type: 'TOGGLE_BACK_ICON',
+}
+
+export const toggleCloseAlertIcon = {
+  type: 'TOGGLE_CLOSE_ALERT_ICON'
 }
