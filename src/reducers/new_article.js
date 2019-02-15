@@ -43,8 +43,11 @@ const new_article = (state = {article: {access_token: sessionStorage.access_toke
         show_publish_card: !state.show_publish_card,
       })
     case 'SWITCH_CATEGORY_TAG':
+      const article4 = Object.assign({}, action.article, {
+        category_id: action.category
+      })
       return Object.assign({}, state, {
-        category: action.category,
+        article: article4
       })
     case 'TOGGLE_EDIT_ICON':
       const article3 = Object.assign({}, action.article, {
