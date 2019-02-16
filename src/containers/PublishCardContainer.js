@@ -5,7 +5,7 @@ import { createArticle, updateArticle, toggleCloseAlertIcon } from '../actions/n
 import CategoryTagContainer from '../containers/CategoryTagContainer';
 import AlertIt from '../views/AlertIt';
 import { goToLoginPage } from '../actions/authenAction';
-
+import { fetchCategories } from '../actions/getCategories';
 
 class PublishCardContainer extends React.Component {
   constructor(props) {
@@ -15,6 +15,12 @@ class PublishCardContainer extends React.Component {
   componentWillMount() {
     if (this.props.article_data.access_token === undefined) {
       this.props.goToLoginPage();
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.categories === undefined || this.props.categories.length === 0) {
+      this.props.fetchCategories();
     }
   }
 
@@ -87,6 +93,7 @@ const mapStateToProps = (state) => ({
   categories: state.category.categories,
   edit: state.new_article.edit,
   alert: state.new_article.alert,
+  category_id: state.category.active_id,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -96,6 +103,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateArticle(new_article)),
   toggleCloseAlertIcon: () => dispatch(toggleCloseAlertIcon),
   goToLoginPage: () => dispatch(goToLoginPage),
+  fetchCategories: () => dispatch(fetchCategories()),
 })
 
 export default connect(
