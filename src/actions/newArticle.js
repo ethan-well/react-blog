@@ -62,7 +62,6 @@ export const createArticle = ({...data}) => (dispatch, action) => {
 
 export const updateArticle = ({...data}) => (dispatch, action) => {
   dispatch(startPostArticle)
-  console.log('updateArticle', data);
   return fetch(`http://localhost:3300/api/articles/${data.id}`, {
     method: 'PUT',
     mode: 'cors',
@@ -73,7 +72,11 @@ export const updateArticle = ({...data}) => (dispatch, action) => {
   }).then(response => response.json())
   .then(json => {
     dispatch(postArticleSuccessed(json))
-    // history.push('/');
+    if (json.status === 1) {
+      history.push('/')
+      dispatch(fetchArticle(json.id))
+      dispatch(switchMainContent('article_content'))
+    }
   })
   .catch(error => dispatch(postError(error)))
 }
