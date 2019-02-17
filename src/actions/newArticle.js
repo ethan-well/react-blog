@@ -1,4 +1,6 @@
 import history from '../history';
+import { fetchArticle } from '../actions/getArticle';
+import { switchMainContent } from '../actions/switchMainContent';
 
 export const newArticle = (category) => ({
   type: 'NEW_ARTICLE',
@@ -37,10 +39,25 @@ export const togglePublishIcon = {
 }
 
 // post create
-export const createArticle = ({...new_article}) => (dispatch, action) => {
+export const createArticle = ({...data}) => (dispatch, action) => {
   dispatch(startPostArticle)
-  console.log('info', new_article);
-  // return fetch(`http://localhost:3300/api/`)
+  return fetch(`http://localhost:3300/api/articles`, {
+    method: 'POST',
+    mode: 'cors',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+  }).then(response => response.json())
+  .then(json => {
+    dispatch(postArticleSuccessed(json))
+    if (json.status === 1) {
+      history.push('/')
+      dispatch(fetchArticle(json.id))
+      dispatch(switchMainContent('article_content'))
+    }
+  })
+  .catch(error => dispatch(postError(error)))
 }
 
 export const updateArticle = ({...data}) => (dispatch, action) => {
