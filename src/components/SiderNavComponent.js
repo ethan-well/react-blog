@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserAvatar from './UserAvatar';
+import UserAvatar from './UserAvatarComponent';
 import CategoryListContainer from '../containers/CategoryListContainer';
 import Style from './user_avatar.scss';
 

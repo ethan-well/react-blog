@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Menu, Icon } from 'antd';
 import Index from '../layouts/Index';
-import SiderNav from '../components/SiderNav';
+import SiderNav from '../components/SiderNavComponent';
 import MainContentContainer from '../containers/mainContentContainer';
 
 
