@@ -15,6 +15,9 @@ const new_article =
         return Object.assign({}, state, {
           article: article0,
           edit: false,
+          alert: {
+            alert_it: false,
+          },
         })
       case 'TOGGLE_CLOSE_ICON':
         return Object.assign({}, state, {
@@ -62,6 +65,9 @@ const new_article =
         return Object.assign({}, state, {
           edit: true,
           article: article3,
+          alert: {
+            alert_it: false,
+          },
         })
       case 'TOGGLE_BACK_ICON':
         return Object.assign({}, state, {
