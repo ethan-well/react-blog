@@ -1,7 +1,7 @@
 import React from 'react';
 import ConfirmModelComponent from '../components/ConfirmModelComponent';
 import { connect } from 'react-redux';
-import { toggleEnsureIcon, toggleCancelIcon } from '../actions/newArticle';
+import { toggleEnsureIcon, toggleCancelIcon } from '../actions/newArticleAction';
 import history from '../history'
 
 class ConfirmModelContainer extends React.Component {

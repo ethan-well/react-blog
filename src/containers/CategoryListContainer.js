@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategories';
-import { switchMainContent } from '../actions/switchMainContent';
-import { fetchArticles } from '../actions/getArticleList';
-import { newArticle } from '../actions/newArticle';
+import { fetchCategories, fetchArticlesByCategoryId } from '../actions/getCategoriesAction';
+import { switchMainContentAction } from '../actions/switchMainContentAction';
+import { fetchArticles } from '../actions/getArticleListAction';
+import { newArticleAction } from '../actions/newArticleAction';
 import CategoryListComponent from '../components/CategoryListComponent';
 import React from 'react';
 
@@ -42,10 +42,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCategories: () =>  dispatch(fetchCategories()),
-  toggleArticle: (id, main) => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContent(main))},
+  toggleArticle: (id, main) => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContentAction(main))},
   fetchArticles: id => dispatch(fetchArticles(id)),
-  switchMainContent: main => dispatch(switchMainContent(main)),
-  toggleAddIcon: (id) => {dispatch(newArticle(id))}
+  switchMainContentAction: main => dispatch(switchMainContentAction(main)),
+  toggleAddIcon: (id) => {dispatch(newArticleAction(id))}
 })
 
 export default connect(

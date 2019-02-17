@@ -1,11 +1,11 @@
 import { Card, Checkbox } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
-import { createArticle, updateArticle, toggleCloseAlertIcon, togglePublicCheckbox } from '../actions/newArticle';
+import { createArticle, updateArticle, toggleCloseAlertIcon, togglePublicCheckbox } from '../actions/newArticleAction';
 import CategoryTagContainer from '../containers/CategoryTagContainer';
 import AlertIt from '../views/AlertIt';
 import { goToLoginPage } from '../actions/authenAction';
-import { fetchCategories } from '../actions/getCategories';
+import { fetchCategories } from '../actions/getCategoriesAction';
 
 class PublishCardContainer extends React.Component {
   constructor(props) {

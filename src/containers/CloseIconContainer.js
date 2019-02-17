@@ -1,6 +1,6 @@
 import React from 'react';
 import CloseIconComponent from '../components/CloseIconComponent';
-import { toggleCloseIcon } from '../actions/newArticle';
+import { toggleCloseIcon } from '../actions/newArticleAction';
 import { connect } from 'react-redux';
 
 class CloseIconContainer extends React.Component {

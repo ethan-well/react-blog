@@ -1,5 +1,5 @@
 import React from 'react';
-import { handleContentChange } from '../actions/newArticle';
+import { handleContentChange } from '../actions/newArticleAction';
 import { connect } from 'react-redux';
 
 class ContentTextareaContainer extends React.Component {

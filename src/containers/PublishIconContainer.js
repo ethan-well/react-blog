@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'antd';
-import { togglePublishIcon } from '../actions/newArticle';
+import { togglePublishIcon } from '../actions/newArticleAction';
 
 class PublishIconContainer extends React.Component {
   constructor(props) {

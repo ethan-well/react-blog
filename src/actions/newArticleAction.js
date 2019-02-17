@@ -1,8 +1,8 @@
 import history from '../history';
-import { fetchArticle } from '../actions/getArticle';
-import { switchMainContent } from '../actions/switchMainContent';
+import { fetchArticle } from './getArticleAction';
+import { switchMainContentAction } from './switchMainContentAction';
 
-export const newArticle = (category) => ({
+export const newArticleAction = (category) => ({
   type: 'NEW_ARTICLE',
   category: category
 })
@@ -54,7 +54,7 @@ export const createArticle = ({...data}) => (dispatch, action) => {
     if (json.status === 1) {
       history.push('/')
       dispatch(fetchArticle(json.id))
-      dispatch(switchMainContent('article_content'))
+      dispatch(switchMainContentAction('article_content'))
     }
   })
   .catch(error => dispatch(postError(error)))
@@ -75,7 +75,7 @@ export const updateArticle = ({...data}) => (dispatch, action) => {
     if (json.status === 1) {
       history.push('/')
       dispatch(fetchArticle(json.id))
-      dispatch(switchMainContent('article_content'))
+      dispatch(switchMainContentAction('article_content'))
     }
   })
   .catch(error => dispatch(postError(error)))

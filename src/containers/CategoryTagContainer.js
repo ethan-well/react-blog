@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tag } from 'antd';
-import { switchCategoryTag } from '../actions/newArticle';
+import { switchCategoryTag } from '../actions/newArticleAction';
 import { connect } from 'react-redux';
 
 const { CheckableTag } = Tag;

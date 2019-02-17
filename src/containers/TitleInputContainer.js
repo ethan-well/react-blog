@@ -1,5 +1,5 @@
 import React from 'react';
-import { handleTitleChange } from '../actions/newArticle';
+import { handleTitleChange } from '../actions/newArticleAction';
 import { connect } from 'react-redux';
 
 class TitleInputContainer extends React.Component {
