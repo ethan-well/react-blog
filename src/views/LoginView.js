@@ -1,8 +1,8 @@
 import React from 'react';
-import LoginForm from '../containers/LoginFormContainer';
+import LoginFormContainer from '../containers/LoginFormContainer';
 import Simple from '../layouts/Simple';
 
-class Login extends React.Component {
+class LoginView extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -14,15 +14,15 @@ class Login extends React.Component {
           <div className='logo'></div>
           <div className='slogon'>
             <h2>
-              开始你的创作！
+              开始你的创作!
             </h2>
             <h4>(本站写权限暂时未开放)</h4>
           </div>
-          <LoginForm />
+          <LoginFormContainer />
         </div>
       </Simple>
     )
   }
 }
 
-export default Login;
+export default LoginView;

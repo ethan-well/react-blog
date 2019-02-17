@@ -1,7 +1,6 @@
 import React, { ReactDOM } from 'react';
 import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
-import { Row, Col } from 'antd';
+const { Footer, Content } = Layout;
 import Style from './base.scss';
 
 class Index extends React.Component {

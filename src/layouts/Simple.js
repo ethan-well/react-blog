@@ -1,5 +1,4 @@
 import React from 'react';
-import Login from '../views/Login';
 import { Row, Layout, Col} from 'antd';
 const Content = Layout.Content;
 import Style from './simple.scss';
