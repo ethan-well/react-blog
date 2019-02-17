@@ -1,7 +1,7 @@
-import { Card } from 'antd';
+import { Card, Checkbox } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
-import { createArticle, updateArticle, toggleCloseAlertIcon } from '../actions/newArticle';
+import { createArticle, updateArticle, toggleCloseAlertIcon, togglePublicCheckbox } from '../actions/newArticle';
 import CategoryTagContainer from '../containers/CategoryTagContainer';
 import AlertIt from '../views/AlertIt';
 import { goToLoginPage } from '../actions/authenAction';
@@ -22,6 +22,10 @@ class PublishCardContainer extends React.Component {
     if (this.props.categories === undefined || this.props.categories.length === 0) {
       this.props.fetchCategories();
     }
+  }
+
+  handleChange = () => {
+    this.props.togglePublicCheckbox();
   }
 
   handleClick = () => {
@@ -47,7 +51,11 @@ class PublishCardContainer extends React.Component {
     return(
       <div>
         <Card
-          actions={[<a onClick={this.handleClick}>发布</a>]}
+          actions={[
+            <span>
+              <Checkbox checked={this.props.checked} onChange={this.handleChange}>Public</Checkbox>
+              <a style={{display: 'inline', color: '#40a9ff'}} onClick={this.handleClick}>发布</a>
+            </span>]}
           title="发布文章"
           style={
             this.props.show_publish_card
@@ -88,12 +96,13 @@ const mapStateToProps = (state) => ({
     category_id: state.new_article.article.category_id,
     access_token: state.new_article.article.access_token,
     id: state.new_article.article.id,
-    // private: state.new_article.article.private
+    private: state.new_article.article.private
   },
   categories: state.category.categories,
   edit: state.new_article.edit,
   alert: state.new_article.alert,
   category_id: state.category.active_id,
+  checked: !state.new_article.article.private
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -104,6 +113,7 @@ const mapDispatchToProps = (dispatch) => ({
   toggleCloseAlertIcon: () => dispatch(toggleCloseAlertIcon),
   goToLoginPage: () => dispatch(goToLoginPage),
   fetchCategories: () => dispatch(fetchCategories()),
+  togglePublicCheckbox: () => dispatch(togglePublicCheckbox),
 })
 
 export default connect(

@@ -92,3 +92,7 @@ export const toggleBackIcon = {
 export const toggleCloseAlertIcon = {
   type: 'TOGGLE_CLOSE_ALERT_ICON'
 }
+
+export const togglePublicCheckbox = {
+  type: 'TOGGLE_PUBLIC_CHECKBOX'
+}

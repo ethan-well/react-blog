@@ -1,5 +1,10 @@
 const new_article =
-  (state = {article: {access_token: sessionStorage.access_token, category_id: 1}}, action) => {
+  (state = {
+      article: {
+        access_token: sessionStorage.access_token,
+        category_id: 1,
+        private: false,
+      }}, action) => {
     switch (action.type) {
       case 'NEW_ARTICLE':
         const article0 = Object.assign({}, state.article, {
@@ -91,6 +96,13 @@ const new_article =
           alert: {
             alert_it: false,
           },
+        })
+      case 'TOGGLE_PUBLIC_CHECKBOX':
+        const article5 = Object.assign({}, state.article, {
+          private: !state.article.private,
+        })
+        return Object.assign({}, state, {
+          article: article5,
         })
       default:
         return state
