@@ -42,7 +42,7 @@ export const toggleCloseAlertIcon =  {
 
 export const goToLoginPage = (dispatch,action) => {
   dispatch(changeAlertInfo);
-  // history.push('/login');
+  history.push('/login');
 }
 
 export const changeAlertInfo = {
