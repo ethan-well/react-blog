@@ -1,12 +1,16 @@
-export const toggleDeleteIcon = (id) => (dispatch, action) => {
+export const toggleDeleteIcon = (data) => (dispatch, action) => {
   dispatch(startDelete);
-  console.log(id)
-  return  fetch(``)
-    .then(response => response.json())
-    .then(json => {
-      dispatch(deleteArticle(json))
-    })
-    .catch(error => dispatch(deleteError(error)))
+  return  fetch(`http://localhost:3300/api/articles/${data.id}?access_token=${data.access_token}`, {
+    method: 'DELETE',
+    mode: 'cors',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+  }).then(response => response.json())
+  .then(json => {
+    dispatch(deleteArticle(json))
+  })
+  .catch(error => dispatch(deleteError(error)))
 }
 
 export const startDelete = {

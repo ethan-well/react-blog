@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Divider, Icon } from  'antd';
 import style from './article.scss';
 
-const Article = ({ article, loginSuccess, toggleEditIcon, toggleBackIcon, toggleDeleteIcon }) => (
+const Article = ({ article, loginSuccess, access_token, toggleEditIcon, toggleBackIcon, toggleDeleteIcon }) => (
   <div className='article-content'>
     { article
       ? <div>
@@ -28,7 +28,7 @@ const Article = ({ article, loginSuccess, toggleEditIcon, toggleBackIcon, toggle
                     type="delete"
                     theme="twoTone"
                     className="delete-icon"
-                    onClick={() => toggleDeleteIcon(article.id)}
+                    onClick={() => toggleDeleteIcon({id: article.id, access_token: access_token})}
                   />
                 </span>
             }
