@@ -1,3 +1,7 @@
+import { switchMainContentAction } from '../actions/switchMainContentAction';
+import { fetchArticlesByCategoryId } from '../actions/getCategoriesAction';
+
+
 export const toggleDeleteIcon = (data) => (dispatch, action) => {
   dispatch(startDelete);
   return  fetch(`http://localhost:3300/api/articles/${data.id}?access_token=${data.access_token}`, {
@@ -8,7 +12,11 @@ export const toggleDeleteIcon = (data) => (dispatch, action) => {
     }),
   }).then(response => response.json())
   .then(json => {
-    dispatch(deleteArticle(json))
+    dispatch(deleteArticleSuccess(json))
+    if (json.status === 1) {
+      dispatch(switchMainContentAction('article_list'))
+      dispatch(fetchArticlesByCategoryId(data.category_id))
+    }
   })
   .catch(error => dispatch(deleteError(error)))
 }
@@ -17,8 +25,8 @@ export const startDelete = {
   type: 'START_DELETE'
 }
 
-export const deleteArticle = (json) => ({
-  type: 'DELETE_ARTICLE',
+export const  deleteArticleSuccess = (json) => ({
+  type: 'DELETE_ARTICLE_SUCCESS',
   result: json,
 })
 

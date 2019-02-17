@@ -28,7 +28,7 @@ const Article = ({ article, loginSuccess, access_token, toggleEditIcon, toggleBa
                     type="delete"
                     theme="twoTone"
                     className="delete-icon"
-                    onClick={() => toggleDeleteIcon({id: article.id, access_token: access_token})}
+                    onClick={() => toggleDeleteIcon({id: article.id, access_token: access_token, category_id: article.category_id})}
                   />
                 </span>
             }

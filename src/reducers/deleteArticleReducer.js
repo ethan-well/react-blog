@@ -9,7 +9,7 @@ const deleteArticle = (state = {}, action) => {
         deleteError: true,
         message: action.message
       })
-    case 'DELETE_ARTICLE':
+    case 'DELETE_ARTICLE_SUCCESS':
       return Object.assign({}, state, {
         isDeleting: false,
         result: action.result,
