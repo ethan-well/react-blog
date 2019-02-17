@@ -105,6 +105,11 @@ export const toggleEditIcon = (article) => ({
   article: article,
 })
 
+export const toggleDeleteIcon = (id) => ({
+  type: 'TOGGLE_DELETE_ICON',
+  id: action.id,
+})
+
 export const toggleBackIcon = {
   type: 'TOGGLE_BACK_ICON',
 }

@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Divider, Icon } from  'antd';
 import style from './article.scss';
 
-const Article = ({ article, loginSuccess, toggleEditIcon, toggleBackIcon }) => (
+const Article = ({ article, loginSuccess, toggleEditIcon, toggleBackIcon, toggleDeleteIcon }) => (
   <div className='article-content'>
     { article
       ? <div>
@@ -17,12 +17,20 @@ const Article = ({ article, loginSuccess, toggleEditIcon, toggleBackIcon }) => (
             {article.title}
             {
               loginSuccess &&
-                <Icon
-                  type="edit"
-                  theme="twoTone"
-                  className="edit-icon"
-                  onClick={() => toggleEditIcon(article)}
-                />
+                <span>
+                  <Icon
+                    type="edit"
+                    theme="twoTone"
+                    className="edit-icon"
+                    onClick={() => toggleEditIcon(article)}
+                  />
+                  <Icon
+                    type="delete"
+                    theme="twoTone"
+                    className="delete-icon"
+                    onClick={() => toggleDeleteIcon(article.id)}
+                  />
+                </span>
             }
           </div>
           <Divider className='divider' />
