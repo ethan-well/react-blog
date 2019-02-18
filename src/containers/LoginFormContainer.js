@@ -2,8 +2,8 @@ import React from 'react';
 import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 import { connect } from 'react-redux';
-import { login, toggleCloseAlertIcon } from '../actions/authenAction';
-import AlertIt from '../views/AlertIt';
+import { login } from '../actions/authenAction';
+import AlertContainer from '../containers/AlertContainer';
 
 class NormalLoginFormContainer extends React.Component {
   constructor(props) {
@@ -17,10 +17,6 @@ class NormalLoginFormContainer extends React.Component {
         this.props.login(values)
       }
     });
-  }
-
-  handleClose = () => {
-    this.props.toggleCloseAlertIcon()
   }
 
   render() {
@@ -46,14 +42,7 @@ class NormalLoginFormContainer extends React.Component {
             登录
           </Button>
         </FormItem>
-        {
-          this.props.authen.show_alert &&
-            <AlertIt
-              message={this.props.authen.message}
-              handleClose={this.handleClose}
-              type='warning'
-            />
-        }
+        <AlertContainer />
       </Form>
     );
   }
@@ -65,7 +54,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   login: (data) => dispatch(login(data)),
-  toggleCloseAlertIcon: () => dispatch(toggleCloseAlertIcon),
 })
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginFormContainer);

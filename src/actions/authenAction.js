@@ -1,4 +1,5 @@
 import history from '../history';
+import { showAlert } from '../actions/alertAction';
 
 export const login = (data) => (dispatch, action) => {
   dispatch(startRequest);
@@ -15,9 +16,11 @@ export const login = (data) => (dispatch, action) => {
     if (!!json.status) {
       history.push('/');
       sessionStorage.setItem('access_token', json.access_token);
+    } else {
+      dispatch(showAlert(json.msg))
     }
   })
-  .catch(error => dispatch(requestFailed(error)))
+  .catch(error => { dispatch(requestFailed(error)); dispatch(showAlert(error)) })
 }
 
 export const startRequest = {
@@ -36,16 +39,7 @@ export const requestSuccess = (json) => ({
   message: json.msg,
 })
 
-export const toggleCloseAlertIcon =  {
-  type: 'TOGGLE_CLOSE_ALERT_ICON'
-}
-
-export const goToLoginPage = (dispatch,action) => {
-  dispatch(changeAlertInfo);
+export const goToLoginPage = (dispatch, action) => {
+  dispatch(showAlert('继续操作前，请先登陆！'))
   history.push('/login');
-}
-
-export const changeAlertInfo = {
-  type: 'CHANGE_ALERT_INFO',
-  message: '继续操作前，请登陆！',
 }

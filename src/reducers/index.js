@@ -7,6 +7,7 @@ import main_content from './mainContentReducer';
 import new_article from './newArticleReducer';
 import authen from './authenReducer';
 import deleteArticle from './deleteArticleReducer';
+import alert from './alertReducer';
 
 const reducer = combineReducers({
   article,
@@ -16,6 +17,7 @@ const reducer = combineReducers({
   new_article,
   authen,
   deleteArticle,
+  alert,
 });
 
 export default reducer;

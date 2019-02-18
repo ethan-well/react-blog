@@ -82,26 +82,12 @@ const new_article =
         return Object.assign({}, state, {
           post_failed: true,
           show_publish_card: false,
-          alert: {
-            alert_it: true,
-            message: action.message,
-          },
         })
       case 'POST_ARTICLE_SUCCESSED':
         return Object.assign({}, state, {
           post_successed: true,
           create_or_update_successed: !!action.json.state,
           show_publish_card: false,
-          alert: {
-            alert_it: !action.json.state,
-            message: action.json.msg,
-          },
-        })
-      case 'TOGGLE_CLOSE_ALERT_ICON':
-        return Object.assign({}, state, {
-          alert: {
-            alert_it: false,
-          },
         })
       case 'TOGGLE_PUBLIC_CHECKBOX':
         const article5 = Object.assign({}, state.article, {

@@ -1,11 +1,12 @@
 import { Card, Checkbox } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
-import { createArticle, updateArticle, toggleCloseAlertIcon, togglePublicCheckbox } from '../actions/newArticleAction';
+import { createArticle, updateArticle, togglePublicCheckbox } from '../actions/newArticleAction';
 import CategoryTagContainer from '../containers/CategoryTagContainer';
-import AlertIt from '../views/AlertIt';
+import AlertContainer from '../containers/AlertContainer';
 import { goToLoginPage } from '../actions/authenAction';
 import { fetchCategories } from '../actions/getCategoriesAction';
+import { toggleCloseAlertIcon } from '../actions/alertAction';
 
 class PublishCardContainer extends React.Component {
   constructor(props) {
@@ -80,9 +81,7 @@ class PublishCardContainer extends React.Component {
             : '暂无数据'
           }
         </Card>
-        { this.props.alert && this.props.alert.alert_it &&
-            <AlertIt message={this.props.alert.message} handleClose={this.handleClose} type='warning'/>
-        }
+        <AlertContainer />
       </div>
     )
   }
@@ -100,7 +99,6 @@ const mapStateToProps = (state) => ({
   },
   categories: state.category.categories,
   edit: state.new_article.edit,
-  alert: state.new_article.alert,
   category_id: state.category.active_id,
   checked: !state.new_article.article.private
 })
