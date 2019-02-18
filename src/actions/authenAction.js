@@ -1,5 +1,5 @@
 import history from '../history';
-import { showAlert } from '../actions/alertAction';
+import { showAlert, toggleCloseAlertIcon } from '../actions/alertAction';
 
 export const login = (data) => (dispatch, action) => {
   dispatch(startRequest);
@@ -14,6 +14,7 @@ export const login = (data) => (dispatch, action) => {
   .then(json => {
     dispatch(requestSuccess(json))
     if (!!json.status) {
+      dispatch(toggleCloseAlertIcon)
       history.push('/');
       sessionStorage.setItem('access_token', json.access_token);
     } else {
