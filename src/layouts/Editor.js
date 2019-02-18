@@ -7,9 +7,6 @@ import Style from './post_base.scss';
 class Editor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      header_title: 'Let life be beautiful like summer flowers and death like autumn leaves'
-    }
   }
 
   render(){
