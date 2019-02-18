@@ -21,6 +21,7 @@ class ArticleContainer extends React.Component {
         toggleEditIcon={this.props.toggleEditIcon}
         toggleBackIcon={this.props.toggleBackIcon}
         toggleDeleteIcon={this.props.toggleDeleteIcon}
+        can_manage={this.props.can_manage}
       />
     )
   }
@@ -30,6 +31,7 @@ const mapStateToProps = (state, ownProps) => ({
   article: state.article_detail.article,
   loginSuccess: state.authen.loginSuccess,
   access_token: state.new_article.article.access_token,
+  can_manage: state.article_detail.can_manage,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

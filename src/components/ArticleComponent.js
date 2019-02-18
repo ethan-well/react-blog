@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Divider, Icon } from  'antd';
 import style from './article.scss';
 
-const Article = ({ article, loginSuccess, access_token, toggleEditIcon, toggleBackIcon, toggleDeleteIcon }) => (
+const Article = ({ article, loginSuccess, access_token, toggleEditIcon, toggleBackIcon, toggleDeleteIcon, can_manage }) => (
   <div className='article-content'>
     { article
       ? <div>
@@ -16,7 +16,7 @@ const Article = ({ article, loginSuccess, access_token, toggleEditIcon, toggleBa
             />
             {article.title}
             {
-              loginSuccess &&
+              loginSuccess && can_manage &&
                 <span>
                   <Icon
                     type="edit"

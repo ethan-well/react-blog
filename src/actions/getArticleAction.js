@@ -1,6 +1,6 @@
-export const fetchArticle = (id) => (dispatch, action) => {
+export const fetchArticle = (id, access_token) => (dispatch, action) => {
   dispatch(requestArticle);
-  return fetch(`http://localhost:3300/api/articles/${id}`)
+  return fetch(`http://localhost:3300/api/articles/${id}?access_token=${access_token}`)
     .then(response => response.json())
     .then(json => {
       dispatch(reciveArticle(json));
@@ -14,7 +14,8 @@ export const requestArticle = {
 
 export const reciveArticle = (json) => ({
   type: 'RECEIVE_ARTICLE',
-  article: json.article
+  article: json.article,
+  can_manage: json.can_manage,
 })
 
 export const fetchError = (error) => ({

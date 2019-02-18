@@ -15,6 +15,7 @@ class ArticleListContainer extends React.Component {
         articles={this.props.articles}
         isFetching={this.props.isFetching}
         toggleArticleTitle={this.props.toggleArticleTitle}
+        access_token={this.props.access_token}
       />
     )
   }
@@ -27,7 +28,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  toggleArticleTitle: id => { dispatch(fetchArticle(id)); dispatch(switchMainContentAction('article_content'))}
+  toggleArticleTitle: (id, access_token) => { dispatch(fetchArticle(id, access_token)); dispatch(switchMainContentAction('article_content'))}
 })
 
 export default connect(

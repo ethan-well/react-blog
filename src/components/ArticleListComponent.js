@@ -10,7 +10,7 @@ const formatData = (data_str) => {
   return data_str.substr(0,10);
 }
 
-const ArticleList = ({ articles, isFetching, toggleArticleTitle }) => (
+const ArticleList = ({ articles, isFetching, toggleArticleTitle, access_token }) => (
   <ul className="article-list">
     {
       isFetching
@@ -20,7 +20,7 @@ const ArticleList = ({ articles, isFetching, toggleArticleTitle }) => (
             return <li key={item.id}>
                       <a
                         className="article-title"
-                        onClick={() => toggleArticleTitle(item.id)}
+                        onClick={() => toggleArticleTitle(item.id, access_token)}
                       >
                         {item.title}
                       </a>

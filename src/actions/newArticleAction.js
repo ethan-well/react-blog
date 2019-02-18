@@ -53,9 +53,11 @@ export const createArticle = ({...data}) => (dispatch, action) => {
   .then(json => {
     dispatch(postArticleSuccessed(json))
     if (json.status === 1) {
-      history.push('/')
-      dispatch(fetchArticle(json.id))
+      console.log('json', json);
+      console.log('data', data);
+      dispatch(fetchArticle(json.id, data.access_token))
       dispatch(switchMainContentAction('article_content'))
+      history.push('/')
     } else {
       dispatch(showAlert(json.msg))
     }
@@ -76,9 +78,9 @@ export const updateArticle = ({...data}) => (dispatch, action) => {
   .then(json => {
     dispatch(postArticleSuccessed(json))
     if (json.status === 1) {
-      history.push('/')
       dispatch(fetchArticle(json.id))
       dispatch(switchMainContentAction('article_content'))
+      history.push('/')
     } else {
       dispatch(showAlert('提交失败！'))
     }

@@ -12,7 +12,8 @@ const category = (state = {}, action) => {
     case 'RECEIVE_ARTICLE':
       return Object.assign({}, state, {
         fetchingArticle: false,
-        article: action.article
+        article: action.article,
+        can_manage: action.can_manage,
       })
     default:
       return state
