@@ -22,7 +22,8 @@ class ArticleListContainer extends React.Component {
 
 const mapStateToProps = (state, ownProps) => ({
   articles: state.article.articles,
-  isFetching: state.article.isFetching
+  isFetching: state.article.isFetching,
+  access_token: state.authen.access_token,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

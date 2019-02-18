@@ -12,7 +12,7 @@ const CategoryListComponent = ({ state, loginSuccess, toggleArticle, toggleAddIc
             return <li key={item.id}>
                      <a
                        className={ state.active_id == item.id ? 'active' : ''}
-                       onClick={ () => toggleArticle(item.id, 'article_list')}
+                       onClick={ () => toggleArticle(item.id)}
                      >
                       {item.name}
                      </a>

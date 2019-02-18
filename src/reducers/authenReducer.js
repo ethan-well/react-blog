@@ -4,6 +4,7 @@ const authen =
       case 'START_REQUEST':
         return Object.assign({}, state, {
           isLogining: true,
+          access_token: sessionStorage.access_token,
         })
       case 'REQUEST_FAILED':
         return Object.assign({}, state, {

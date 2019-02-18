@@ -42,7 +42,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCategories: () =>  dispatch(fetchCategories()),
-  toggleArticle: (id, main) => {dispatch(fetchArticlesByCategoryId(id)), dispatch(switchMainContentAction(main))},
+  toggleArticle: (id) => {dispatch(fetchArticlesByCategoryId(id)); dispatch(switchMainContentAction('article_list'))},
   fetchArticles: id => dispatch(fetchArticles(id)),
   switchMainContentAction: main => dispatch(switchMainContentAction(main)),
   toggleAddIcon: (id) => {dispatch(newArticleAction(id))}
