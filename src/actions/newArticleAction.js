@@ -1,6 +1,7 @@
 import history from '../history';
 import { fetchArticle } from './getArticleAction';
 import { switchMainContentAction } from './switchMainContentAction';
+import { showAlert } from '../actions/alertAction';
 
 export const newArticleAction = (category) => ({
   type: 'NEW_ARTICLE',
@@ -55,6 +56,8 @@ export const createArticle = ({...data}) => (dispatch, action) => {
       history.push('/')
       dispatch(fetchArticle(json.id))
       dispatch(switchMainContentAction('article_content'))
+    } else {
+      dispatch(showAlert(json.msg))
     }
   })
   .catch(error => dispatch(postError(error)))
@@ -76,6 +79,8 @@ export const updateArticle = ({...data}) => (dispatch, action) => {
       history.push('/')
       dispatch(fetchArticle(json.id))
       dispatch(switchMainContentAction('article_content'))
+    } else {
+      dispatch(showAlert('提交失败！'))
     }
   })
   .catch(error => dispatch(postError(error)))
