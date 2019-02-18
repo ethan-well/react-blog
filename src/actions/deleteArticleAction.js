@@ -1,5 +1,6 @@
 import { switchMainContentAction } from '../actions/switchMainContentAction';
 import { fetchArticlesByCategoryId } from '../actions/getCategoriesAction';
+import { showAlert } from '../actions/alertAction';
 
 
 export const toggleDeleteIcon = (data) => (dispatch, action) => {
@@ -16,6 +17,8 @@ export const toggleDeleteIcon = (data) => (dispatch, action) => {
     if (json.status === 1) {
       dispatch(switchMainContentAction('article_list'))
       dispatch(fetchArticlesByCategoryId(data.category_id))
+    } else {
+      dispatch(showAlert('删除失败！'))
     }
   })
   .catch(error => dispatch(deleteError(error)))
