@@ -1,3 +1,4 @@
+import '../../config';
 import { switchMainContentAction } from '../actions/switchMainContentAction';
 import { fetchArticlesByCategoryId } from '../actions/getCategoriesAction';
 import { showAlert } from '../actions/alertAction';
@@ -5,7 +6,7 @@ import { showAlert } from '../actions/alertAction';
 
 export const toggleDeleteIcon = (data) => (dispatch, action) => {
   dispatch(startDelete);
-  return  fetch(`http://localhost:3300/api/articles/${data.id}?access_token=${data.access_token}`, {
+  return  fetch(`${global.myBlog.apiServer}/api/articles/${data.id}?access_token=${data.access_token}`, {
     method: 'DELETE',
     mode: 'cors',
     headers: new Headers({

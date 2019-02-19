@@ -1,3 +1,4 @@
+import '../../config';
 import history from '../history';
 import { fetchArticle } from './getArticleAction';
 import { switchMainContentAction } from './switchMainContentAction';
@@ -42,7 +43,7 @@ export const togglePublishIcon = {
 // post create
 export const createArticle = ({...data}) => (dispatch, action) => {
   dispatch(startPostArticle)
-  return fetch(`http://localhost:3300/api/articles`, {
+  return fetch(`${global.myBlog.apiServer}/api/articles`, {
     method: 'POST',
     mode: 'cors',
     body: JSON.stringify(data),
@@ -67,7 +68,7 @@ export const createArticle = ({...data}) => (dispatch, action) => {
 
 export const updateArticle = ({...data}) => (dispatch, action) => {
   dispatch(startPostArticle)
-  return fetch(`http://localhost:3300/api/articles/${data.id}`, {
+  return fetch(`${global.myBlog.apiServer}/api/articles/${data.id}`, {
     method: 'PUT',
     mode: 'cors',
     body: JSON.stringify(data),

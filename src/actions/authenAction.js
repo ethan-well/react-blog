@@ -1,9 +1,10 @@
+import '../../config';
 import history from '../history';
 import { showAlert, toggleCloseAlertIcon } from '../actions/alertAction';
 
 export const login = (data) => (dispatch, action) => {
   dispatch(startRequest);
-  return fetch(`http://localhost:3300/api/auth/login`, {
+  return fetch(`${global.myBlog.apiServer}/api/auth/login`, {
     method: 'POST',
     mode: 'cors',
     body: JSON.stringify(data),

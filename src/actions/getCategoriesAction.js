@@ -1,6 +1,7 @@
+import '../../config';
 export const fetchCategories  = () =>  (dispathch, action) => {
   dispathch(requestCategories);
-  return fetch('http://localhost:3300/api/categories')
+  return fetch(`${global.myBlog.apiServer}/api/categories`)
     .then(response => response.json())
     .then(json => {
       dispathch(receiveCategories(json));
