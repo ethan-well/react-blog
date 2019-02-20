@@ -14,7 +14,7 @@ class PublishCardContainer extends React.Component {
   }
 
   componentWillMount() {
-    if (this.props.article_data.access_token === undefined) {
+    if (!this.props.loginSuccess) {
       this.props.goToLoginPage();
     }
   }
@@ -100,7 +100,8 @@ const mapStateToProps = (state) => ({
   categories: state.category.categories,
   edit: state.new_article.edit,
   category_id: state.category.active_id,
-  checked: !state.new_article.article.private
+  checked: !state.new_article.article.private,
+  loginSuccess: state.authen.loginSuccess,
 })
 
 const mapDispatchToProps = (dispatch) => ({
