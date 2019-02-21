@@ -1,6 +1,7 @@
 const new_article =
   (state = {
       article: {
+        access_token: sessionStorage.access_token,
         category_id: 1,
         private: false,
       }}, action) => {
@@ -60,7 +61,7 @@ const new_article =
         })
       case 'TOGGLE_EDIT_ICON':
         const article3 = Object.assign({}, action.article, {
-          access_token: sessionStorage.access_token,
+          access_token: state.article.access_token,
         })
         return Object.assign({}, state, {
           edit: true,

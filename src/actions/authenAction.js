@@ -1,8 +1,9 @@
 import '../../config';
 import history from '../history';
 import { showAlert, toggleCloseAlertIcon } from '../actions/alertAction';
+import { fetchArticles } from '../actions/getArticleListAction';
 
-export const login = (data) => (dispatch, action) => {
+export const login = (data, active_id) => (dispatch, action) => {
   dispatch(startRequest);
   return fetch(`${global.myBlog.apiServer}/api/auth/login`, {
     method: 'POST',
@@ -16,8 +17,11 @@ export const login = (data) => (dispatch, action) => {
     dispatch(requestSuccess(json))
     if (!!json.status) {
       dispatch(toggleCloseAlertIcon)
-      history.push('/');
+      if ( active_id ) {
+        dispatch(fetchArticles(active_id))
+      }
       sessionStorage.setItem('access_token', json.access_token);
+      history.push('/');
     } else {
       dispatch(showAlert(json.msg))
     }

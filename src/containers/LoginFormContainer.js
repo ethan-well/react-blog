@@ -14,7 +14,7 @@ class NormalLoginFormContainer extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.props.login(values)
+        this.props.login(values, this.props.active_category_id)
       }
     });
   }
@@ -49,7 +49,8 @@ class NormalLoginFormContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  authen: state.authen
+  authen: state.authen,
+  active_category_id: state.category.active_id,
 })
 
 const mapDispatchToProps = (dispatch) => ({
