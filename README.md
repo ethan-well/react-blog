@@ -20,5 +20,8 @@ npm run start
 ### 主页
 ![index](https://github.com/ItsWewin/images/raw/master/blog/blog-index.png)
 
+### 详情页
+![detail](https://raw.githubusercontent.com/ItsWewin/images/master/blog/blog-detail.png)
+
 ### 新建或编辑页面
 ![new-or-edit](https://raw.githubusercontent.com/ItsWewin/images/master/blog/blog-edit.png)
