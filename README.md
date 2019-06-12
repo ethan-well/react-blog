@@ -25,3 +25,7 @@ npm run start
 
 ### 新建或编辑页面
 ![new-or-edit](https://raw.githubusercontent.com/ItsWewin/images/master/blog/blog-edit.png)
+
+## 项目状况
+
+目前项目已经能使用，但是还有很多细节需要完善，代码也需要优化和重构，感兴趣的朋友可以 start 或者加 follow，后面我会持续更新。
