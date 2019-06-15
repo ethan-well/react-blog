@@ -11,7 +11,7 @@ npm run start
 ```
 部署完成后，使用浏览器访问 http://localhost:9000 端口即可。
 
-前面说了项目的接口是一个 Ruby On Rails 项目提供的，所以你还需要部署一下 [Blog Api](https://github.com/wewin11235/myblogapi) 才能在本地成功体验这个项目，当然你也可以前往 <a href="http://www.mayihahaha.com/" target="_blank">蚂蚁哈哈哈站点</a> 体验这个项目。
+前面说了项目的接口是一个 Ruby On Rails 项目提供的，所以你还需要部署一下 <a href="https://github.com/wewin11235/myblogapi" target="_blank">Blog Api</a> 才能在本地成功体验这个项目，当然你也可以前往 <a href="http://www.mayihahaha.com/" target="_blank">蚂蚁哈哈哈站点</a> 体验这个项目。
 
 
 ## 效果图
