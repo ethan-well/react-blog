@@ -27,6 +27,17 @@ const config = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -35,6 +46,7 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       template: 'index.html',
+      favicon: "./src/images/logo.png",
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash:8].css",

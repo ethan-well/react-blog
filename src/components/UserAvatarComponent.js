@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Avatar } from 'antd';
+import logo from '../images/logo.svg'
 
 class UserAvatar extends Component {
   constructor(props) {
@@ -9,9 +10,10 @@ class UserAvatar extends Component {
   render() {
     return(
       <div className="user-avatar">
+        <image src={logo}></image>
         <Avatar
           size={64}
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          src={logo}
           style={{ backgroundColor: '#87d068' }}
         />
       </div>
