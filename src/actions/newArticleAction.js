@@ -54,8 +54,6 @@ export const createArticle = ({...data}) => (dispatch, action) => {
   .then(json => {
     dispatch(postArticleSuccessed(json))
     if (json.status === 1) {
-      console.log('json', json);
-      console.log('data', data);
       dispatch(fetchArticle(json.id, data.access_token))
       dispatch(switchMainContentAction('article_content'))
       history.push('/')
@@ -79,7 +77,7 @@ export const updateArticle = ({...data}) => (dispatch, action) => {
   .then(json => {
     dispatch(postArticleSuccessed(json))
     if (json.status === 1) {
-      dispatch(fetchArticle(json.id))
+      dispatch(fetchArticle(json.id, data.access_token))
       dispatch(switchMainContentAction('article_content'))
       history.push('/')
     } else {
