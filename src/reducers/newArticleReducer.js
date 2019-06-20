@@ -53,7 +53,7 @@ const new_article =
           show_publish_card: !state.show_publish_card,
         })
       case 'SWITCH_CATEGORY_TAG':
-        const article4 = Object.assign({}, action.article, {
+        const article4 = Object.assign({}, state.article, {
           category_id: action.category
         })
         return Object.assign({}, state, {
