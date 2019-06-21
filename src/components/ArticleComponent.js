@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Divider, Icon } from  'antd';
 import style from './article.scss';
+import table_style from './table_style.scss';
 
 const Article = ({ article, loginSuccess, access_token, toggleEditIcon, toggleBackIcon, toggleDeleteIcon, can_manage }) => (
   <div className='article-content'>
