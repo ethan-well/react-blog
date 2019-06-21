@@ -24,7 +24,7 @@ const ArticleList = ({ articles, isFetching, toggleArticleTitle, access_token })
                       >
                         {item.title}
                       </a>
-                      <span className="article-created-at">{ formatData(item.created_at) }</span>
+                      {/* <span className="article-created-at">{ formatData(item.created_at) }</span> */}
                       <div className="article-summary">
                         {generateSummary(item.description)}
                       </div>

@@ -30,7 +30,7 @@ class AlertContainer extends React.Component {
   }
 }
 
-const mapStatetoProps = (state) => ({
+const mapStateToProps = (state) => ({
   show: state.alert.show,
   message: state.alert.message,
   type: state.alert.type,
@@ -41,6 +41,6 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(
-  mapStatetoProps,
+  mapStateToProps,
   mapDispatchToProps
 )(AlertContainer)

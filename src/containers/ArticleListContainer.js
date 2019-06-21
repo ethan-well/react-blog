@@ -28,7 +28,9 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  toggleArticleTitle: (id, access_token) => { dispatch(fetchArticle(id, access_token)); dispatch(switchMainContentAction('article_content'))}
+  toggleArticleTitle: (id, access_token) => {
+    dispatch(fetchArticle(id, access_token));
+    dispatch(switchMainContentAction('article_content'))}
 })
 
 export default connect(

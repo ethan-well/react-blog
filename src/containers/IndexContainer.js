@@ -12,7 +12,7 @@ class IndexContainer extends React.Component {
       <Router history={history}>
         <div>
           <Route exact path="/" component={HomeView} />
-          <Route path='/new-aricle' component={NewArticleView} />
+          <Route path='/new-article' component={NewArticleView} />
           <Route path='/login' component={LoginView} />
         </div>
       </Router>

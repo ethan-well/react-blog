@@ -36,7 +36,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchArticle: id => dispatch(fetchArticle(id)),
-  toggleEditIcon: (article) => dispatch(toggleEditIcon(article), history.push('/new-aricle')),
+  toggleEditIcon: (article) => dispatch(toggleEditIcon(article), history.push('/new-article')),
   toggleBackIcon: () => {dispatch(toggleBackIcon), dispatch(switchMainContentAction('article_list'))},
   toggleDeleteIcon: (data) => dispatch(toggleDeleteIcon(data)),
 })

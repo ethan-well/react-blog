@@ -25,11 +25,11 @@ const mapStateToProps = (state, ownProps) => ({
   checked: state.new_article.article.category_id == ownProps.ownCategory
 })
 
-const mapDisppatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   switchCategoryTag: category => dispatch(switchCategoryTag(category))
 })
 
 export default connect(
   mapStateToProps,
-  mapDisppatchToProps
+  mapDispatchToProps
 )(CategoryTagContainer)

@@ -3,7 +3,7 @@ import UserAvatar from './UserAvatarComponent';
 import CategoryListContainer from '../containers/CategoryListContainer';
 import Style from './user_avatar.scss';
 
-class SiderNav extends Component {
+class SideNav extends Component {
   constructor(props) {
     super(props);
   }
@@ -20,4 +20,4 @@ class SiderNav extends Component {
   }
 }
 
-export default SiderNav;
+export default SideNav;

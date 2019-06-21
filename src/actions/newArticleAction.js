@@ -52,7 +52,7 @@ export const createArticle = ({...data}) => (dispatch, action) => {
     }),
   }).then(response => response.json())
   .then(json => {
-    dispatch(postArticleSuccessed(json))
+    dispatch(postArticleSucceeded(json))
     if (json.status === 1) {
       dispatch(fetchArticle(json.id, data.access_token))
       dispatch(switchMainContentAction('article_content'))
@@ -75,7 +75,7 @@ export const updateArticle = ({...data}) => (dispatch, action) => {
     }),
   }).then(response => response.json())
   .then(json => {
-    dispatch(postArticleSuccessed(json))
+    dispatch(postArticleSucceeded(json))
     if (json.status === 1) {
       dispatch(fetchArticle(json.id, data.access_token))
       dispatch(switchMainContentAction('article_content'))
@@ -91,7 +91,7 @@ export const startPostArticle = {
   type: 'START_POST_ARTICLE'
 }
 
-export const postArticleSuccessed = (json) => ({
+export const postArticleSucceeded = (json) => ({
   type: 'POST_ARTICLE_SUCCESSED',
   json: json
 })

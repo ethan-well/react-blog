@@ -1,12 +1,12 @@
 import '../../config';
-export const fetchCategories  = () =>  (dispathch, action) => {
-  dispathch(requestCategories);
+export const fetchCategories  = () =>  (dispatch, action) => {
+  dispatch(requestCategories);
   return fetch(`${global.myBlog.apiServer}/api/categories`)
     .then(response => response.json())
     .then(json => {
-      dispathch(receiveCategories(json));
+      dispatch(receiveCategories(json));
     })
-    .catch(error => dispathch(fetchError(error)))
+    .catch(error => dispatch(fetchError(error)))
 }
 
 export const requestCategories = {

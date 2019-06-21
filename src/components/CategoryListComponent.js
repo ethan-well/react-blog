@@ -17,7 +17,7 @@ const CategoryListComponent = ({ state, loginSuccess, toggleArticle, toggleAddIc
                       {item.name}
                      </a>
                      <Link
-                      to='/new-aricle'
+                      to='/new-article'
                       className='nav-link'
                      >
                      {

@@ -76,7 +76,7 @@ const new_article =
         })
       case 'START_POST_ARTICLE':
         return Object.assign({}, state, {
-          postting_article: true,
+          posting_article: true,
           show_publish_card: false,
         })
       case 'POST_ARTICLE_FAILED':
@@ -86,8 +86,8 @@ const new_article =
         })
       case 'POST_ARTICLE_SUCCESSED':
         return Object.assign({}, state, {
-          post_successed: true,
-          create_or_update_successed: !!action.json.state,
+          post_succeeded: true,
+          create_or_update_succeeded: !!action.json.state,
           show_publish_card: false,
         })
       case 'TOGGLE_PUBLIC_CHECKBOX':

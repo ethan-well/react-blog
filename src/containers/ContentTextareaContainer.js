@@ -18,7 +18,7 @@ class ContentTextareaContainer extends React.Component {
   }
 }
 
-const mapStatetoProps = (state) => ({
+const mapStateToProps = (state) => ({
   article: state.new_article.article
 })
 
@@ -27,6 +27,6 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(
-  mapStatetoProps,
+  mapStateToProps,
   mapDispatchToProps
 )(ContentTextareaContainer)
