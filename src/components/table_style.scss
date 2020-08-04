@@ -3,7 +3,12 @@ table thead {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     th {
-        padding: 0 8px;
+        padding: 10px 30px;
+        text-align: center;
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    th:last-child {
+        border-right: 1px solid rgba(0, 0, 0, 0.65);
     }
 }
 
@@ -18,6 +23,11 @@ table tbody {
         border-top-right-radius: 2px;
     }
     td {
-        padding: 0 8px;
+        padding: 10px 30px;
+        text-align: center;
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    td:last-child {
+        border-right: 1px solid rgba(0, 0, 0, 0.65);
     }
 }
