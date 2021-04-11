@@ -1,3 +1,3 @@
 global.myBlog = {
-  apiServer:'http://localhost:3300',
+  apiServer: 'http://120.24.88.228',
 };

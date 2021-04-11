@@ -1,4 +1,15 @@
 html, body {
+  height: 100%;
+  #root {
+    height: 100%;
+    #router {
+      height: 100%;
+      .ant-layout {
+        min-height: 100%;
+      }
+    }
+    
+  }
   background-color: #fafafa;
   a {
     color: #1890ff;
@@ -32,6 +43,7 @@ html, body {
   }
 
   .content {
+    min-height: 100%;
     padding-top: 20px;
     background-color: #fafafa;
 
@@ -54,7 +66,7 @@ html, body {
 
   .footer {
     min-width: 20px;
-    background-color: #fafafa;
+    background-color: #ede9e98e;
   }
 
   .alert-it {
